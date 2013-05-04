@@ -25,7 +25,7 @@ void LireChaine(char chaine[])
  */
  void Argument(char chaine1[],char chaine2[],int choix)
 {
-	int i=0;
+	int i=0, i2=0;
 	char chainetmp[N];
 	
 
@@ -57,9 +57,10 @@ void LireChaine(char chaine[])
 		{
 			if(chaine1[i] != ' ')
 			{
-				chainetmp[i]=chaine1[i];		
+				chainetmp[i2]=chaine1[i];		
 			}
 			i++;
+			i2++;
 		}
 		chainetmp[i-1]='\0';
 	}
