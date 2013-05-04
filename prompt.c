@@ -26,7 +26,7 @@ void LireChaine(char chaine[])
 void Argument(char chaine1[],char chaine2[],int choix)
 {
 	int i=0;
-	char* chainetmp[N];
+	char chainetmp[N];
 	switch (choix)
 	{
 		case '1':	while((i<N)&&(chaine1[i] != ':'))
