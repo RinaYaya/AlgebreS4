@@ -14,7 +14,8 @@ char s2[50];
 
 	Argument1(s,s2);
 	
-	printf(" RECUPERE : %s \n",s2);
+	printf(" RECUPERE : %s",s2);
+	printf("verif");
 
   return 0;
 }
