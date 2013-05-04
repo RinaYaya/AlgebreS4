@@ -25,5 +25,5 @@ float getValNombre(Nombre x);
 Matrice NewMatrice(char* nom, char chaine[]);
 Matrix getMatrice(Matrice m);
 int NbLigne(char chaine[]);
-int iNbColonne(char chaine[]);
+int NbColonne(char chaine[]);
 #endif

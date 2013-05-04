@@ -131,7 +131,7 @@ Matrice NewMatrice(char* nom, char chaine[])
  */
 int NbLigne(char chaine[])
 {
-	int i=0;
+	int i=0, rows=0;
 	
 	while(chaine[i] != '\0')
 	{
@@ -141,7 +141,7 @@ int NbLigne(char chaine[])
 		}
 		i++;
 	}
-	 return i;
+	 return rows;
 }
 //----------------------------------------------------------------------
 /**
@@ -151,7 +151,7 @@ int NbLigne(char chaine[])
  * \return nombre de colonnes
  *  \pre 
  */
-int iNbColonne(char chaine[])
+int NbColonne(char chaine[])
 {
 	int i=0, col=0;
 	
