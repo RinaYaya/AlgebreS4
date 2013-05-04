@@ -17,7 +17,7 @@ char s2[50];
 
 
 
-	Argument1(s,s2,1);
+	Argument(s,s2,1);
 	
 	//~ switch (s2)
 	//~ {
