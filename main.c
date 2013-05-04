@@ -1,10 +1,12 @@
-#include "prompt.h
+#include "prompt.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 //----------------------------------------------------------------------
 int main ()
 {
 
 char s[50];
-int i=0;
 
 	while(1)
 	{
