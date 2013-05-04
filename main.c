@@ -8,12 +8,9 @@ int main ()
 
 char s[50];
 char s2[50];
-	while(1)
-	{
+	
 		printf("> ");
 		LireChaine(s);
-		printf("%s \n",s);
-	}
 
 	Argument1(s,s2);
 	
