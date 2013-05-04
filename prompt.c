@@ -43,7 +43,7 @@ void LireChaine(char chaine[])
 		chainetmp[i-1]='\0';
 	}
 					
-	if(choix == 2)
+	if(choix == 0)
 	{
 		printf("F\n");
 		while((i<N)&&(chaine1[i] != ':'))
