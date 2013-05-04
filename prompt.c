@@ -70,24 +70,24 @@ void Argument(char chaine1[],char chaine2[],int choix)
  */
 Nombre NewNombre(char* nom, float a)
 {
-	Nombre a = malloc(sizeof(StrNombre));
+	Nombre an = malloc(sizeof(StrNombre));
 	
-	if(a == NULL)
+	if(an == NULL)
 	{
 		printf("Probleme MALLOC: NewNombre");
 	}
 	
-	a->variable=malloc(20*sizeof(char));
+	an->variable=malloc(20*sizeof(char));
 	
-	if(a->variable == NULL)
+	if(an->variable == NULL)
 	{
 		printf("Probleme MALLOC: NewNombre");
 	}
 	
-	strcpy(a->variable,nom);
-	a->variable=a;
+	strcpy(an->variable,nom);
+	an->variable=a;
 	
-	return a;
+	return an;
 }
 //----------------------------------------------------------------------
 /**
