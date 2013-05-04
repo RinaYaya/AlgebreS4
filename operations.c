@@ -14,6 +14,19 @@ Matrix addition(Matrix m1, Matrix m2)
 	return m;
 }
 
+Matrix soustraction(Matrix m1,Matrix m2)
+{
+	Matrix m = newMatrix(m1->nrows, m1->ncols);
+	int i, l = (m->nrows)*(m->ncols);
+	
+	for(i = 0; i < l; i++)
+	{
+		m->mat[i] = m1->mat[i] - m2->mat[i];
+	}
+	
+	return m;
+}
+
 // precondition : m1->cols = m2->rows
 Matrix multiplication(Matrix m1, Matrix m2)
 {
