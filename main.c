@@ -17,12 +17,12 @@ char s2[50];
 
 	Argument1(s,s2);
 	
-	switch (s2)
-	{
-		case "a":
-				break;
-				
-	}
+	//~ switch (s2)
+	//~ {
+		//~ case "a":
+				//~ break;
+				//~ 
+	//~ }
 
   return 0;
 }
