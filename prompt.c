@@ -27,18 +27,19 @@ void LireChaine(char chaine[])
 {
 	int i=0;
 	char chainetmp[N];
+	printf("Valeur %s \n",chaine1);
 	switch (choix)
 	{
 		case '1':	while((i<N)&&(chaine1[i] != ':'))
 					{
 						if(chaine1[i] != ' ')
 						{
-						
 							chainetmp[i]=chaine1[i];
 						}
 						i++;
 					}
 					chainetmp[i]='\0';
+					printf("TMP %s \n",chaine1);
 					break;
 					
 		case '2':	while((i<N)&&(chaine1[i] != ':'))
@@ -55,6 +56,7 @@ void LireChaine(char chaine[])
 						i++;
 					}
 					chainetmp[i]='\0';
+					printf("TM2P %s \n",chaine1);
 					break;
 	}
 	
