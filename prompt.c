@@ -55,13 +55,11 @@ void LireChaine(char chaine[])
 						i++;
 					}
 					chainetmp[i]='\0';
-					strcpy(chaine2,chainetmp);
-					printf("Valeur %s %s \n",chainetmp, chaine2);
-
 					break;
-					
-
 	}
+	
+	strcpy(chaine2,chainetmp);
+					//printf("Valeur %s %s \n",chainetmp, chaine2);
 }
 //----------------------------------------------------------------------
 /**
