@@ -68,7 +68,7 @@ char s1[50];
 									else
 										if((s2[0] >= '0')&&(s2[0] <= '9'))
 										{
-											TabNombre[iVar]=NewNombre(s1,atoi(s2));
+											TabNombre[iVar]=NewNombre(s1,atof(s2));
 											printf(" %s = %d \n",TabNombre[iVar]->variable,TabNombre[iVar]->valeur);
 										}
 										else
