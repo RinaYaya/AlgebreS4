@@ -15,7 +15,7 @@
 #include <string.h>
 //-----------------------------Structure--------------------------------
 typedef struct {char *variable; float valeur; } StrNombre, *Nombre;
-typedef struct {char *nom; matrix matrice;} StrMatrice, *Matrice;
+typedef struct {char *nom; Matrix matrice;} StrMatrice, *Matrice;
 
 //-----------------------------Prototype--------------------------------
 void LireChaine(char chaine[]);
