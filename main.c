@@ -5,11 +5,13 @@
 int main ()
 {
 
+char s[50];
+
 	while(1)
 	{
 		printf("> ");
-		scanf("%s ");
-		prinf("%s \n");
+		scanf("%s ",s);
+		prinf("%s \n",s);
 		
 		
 	}
