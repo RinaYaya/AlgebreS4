@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#define N 50
 //----------------------------------------------------------------------
 int main ()
 {
@@ -17,7 +18,7 @@ char s3[50];
 char Temp[50];
 Matrice	TabMat[10];
 Nombre TabNombre[10];
-int iVar=0, iMat=0, Ligne=0, col=0, iCptL=0, iCptC=0, iT=0;
+int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0;
 
 	while(iQuit == 0)
 	{	
@@ -36,11 +37,12 @@ int iVar=0, iMat=0, Ligne=0, col=0, iCptL=0, iCptC=0, iT=0;
 		{
 			if(strcmp(s2,"matrix")==0)
 			{
+				i=0;
 				iT=0;
 				iCptC=0;
 				iCptL=0;
-				Ligne=NbLigne(chaine);
-				Col=NbColonne(chaine);
+				Ligne=NbLigne(s);
+				Col=NbColonne(s);
 				Col++;
 				
 				TabMat[iMat]=newMatrix(Ligne,Col);
@@ -48,22 +50,22 @@ int iVar=0, iMat=0, Ligne=0, col=0, iCptL=0, iCptC=0, iT=0;
 				
 				while((i<N)&&(i!='\0'))
 				{
-					if(chaine[i] == '[')
+					if(s[i] == '[')
 					{
 						iCptL++;
 					}
 					
-					if((chaine[i]>='0')&&(chaine[i]<='9'))
+					if((s[i]>='0')&&(s[i]<='9'))
 					{
-						Temp[iT]=chaine[i];
+						Temp[iT]=s[i];
 						iT++;
 					}
 					
-					if((chaine[i] == ',')||(chaine[i]== ']'))
+					if((s[i] == ',')||(s[i]== ']'))
 					{
 						
 						Temp[iT]='\0';
-						setElt(TabMatrice[iMat], iCptL-1,iCptC, atof(Temp));
+						setElt(TabMat[iMat], iCptL-1,iCptC, atof(Temp));
 						iCptC++;
 						iT=0;
 						i=i+2;
