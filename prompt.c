@@ -100,4 +100,34 @@ Nombre NewNombre(char* nom, float a)
  */
 Matrice NewMatrice(char* nom, char chaine[])
 {
+	Matrice a = malloc(sizeof(StrMatrice));
+	int rows=0,i=0, col=0;
+	
+	while(chaine[i] != '\0')
+	{
+		if(chaine[i]='[')
+		{
+			rows++;
+		}
+		i++;
+	}
+	
+	i=0;
+	while((chaine[i] != '\0')&&(chaine[i] != ']'))
+	{
+		if(chaine[i]= ',')
+		{
+			col++;
+		}
+		i++;
+	}
+	if(a == NULL)
+	{
+		printf("Probleme MALLOC: NewNombre");
+	}
+	
+	a->variable=malloc(20*sizeof(char));
+	a->matrice=newMatrix(rows,col);
+	return a;
+	
 }
