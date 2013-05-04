@@ -19,7 +19,7 @@ typedef struct {char *nom; Matrix matrice;} StrMatrice, *Matrice;
 
 //-----------------------------Prototype--------------------------------
 void LireChaine(char chaine[]);
-void Argument1(char chaine1[], char chaine2[],int choix);
+void Argument(char chaine1[], char chaine2[],int choix);
 Nombre NewNombre(char* nom, float a);
 float getValNombre(Nombre x);
 Matrice NewMatrice(char* nom, char chaine[]);
