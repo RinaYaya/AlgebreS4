@@ -13,7 +13,7 @@ matrix.o : matrix.c matrix.h
 	gcc $(CFLAGS) -c matrix.c
 	
 operations.o : operations.c operations.h matrix.h
-	gcc $(CFLAGS) -c operation.c
+	gcc $(CFLAGS) -c operations.c
 	
 resol.o : resol.c resol.h operations.h matrix.h
 	gcc $(CFLAGS) -c resol.c
