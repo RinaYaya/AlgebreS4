@@ -25,14 +25,48 @@ char s1[50];
 		{
 			iQuit=1;
 		}
+		else
+		{
+			if(strcmp(s2,"matrix")==0)
+			{
+				printf(" Matrix \n");
+			}
+			else
+				if(strcmp(s2,"mult")==0)
+				{
+					printf(" Multiplication \n");
+				}
+				else
+					if(strcmp(s2,"invert")==0)
+					{
+						printf(" inverse \n");
+					}
+					else
+						if(strcmp(s2,"determinant")==0)
+						{
+							printf(" Det \n");
+						}
+						else
+							if(strcmp(s2,"solve")==0)
+							{
+								printf(" solve \n");
+							}
+							else
+								if(strcmp(s2,"rank")==0)
+								{
+									printf(" rang \n");
+								}
+								else
+									if(strcmp(s2,"speedtest")==0)
+									{
+										printf(" SP \n");
+									}
+									else
+									{
+										printf("%s : function not implemented");
+									}
+		}
 	}
-
-
-
-
-	printf(" %s | %s \n",s2,s1);
-
-
   return 0;
 }
 //----------------------------------------------------------------------
