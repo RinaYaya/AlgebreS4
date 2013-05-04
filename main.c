@@ -1,14 +1,5 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
+#include "prompt.h
 //----------------------------------------------------------------------
-void LireChaine(char chaine[], int size) 
-{  
-    fgets(chaine, size, stdin);  
-    chaine[strlen(chaine) - 1] = '\0';  
-}  
-
 int main ()
 {
 
