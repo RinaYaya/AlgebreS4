@@ -12,7 +12,6 @@
 #include "matrix.h"
 #include "operations.h"
 #include "resol.h"
-#include "matrix.h"
 #include <string.h>
 //-----------------------------Structure--------------------------------
 typedef struct {char *variable; float valeur; } StrNombre, *Nombre;
