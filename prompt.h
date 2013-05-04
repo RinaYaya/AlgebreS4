@@ -11,5 +11,6 @@
 #include <unistd.h>
 #include <string.h>
 //-----------------------------Prototype--------------------------------
-void LireChaine(char chaine[], int size);
+void LireChaine(char chaine[]);
+void Argument1(char chaine1[], chaine2[]);
 #endif
