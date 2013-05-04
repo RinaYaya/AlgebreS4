@@ -28,43 +28,44 @@ void LireChaine(char chaine[])
 	int i=0;
 	char chainetmp[N];
 	printf("Valeur %s %i \n",chaine1, choix);
-	switch (choix)
-	{
-		case '1' :	printf("puueeee \n");
-					while((i<N)&&(chaine1[i] != ':'))
-					{
-						if(chaine1[i] != ' ')
-						{
 
-							chainetmp[i]=chaine1[i];
-							printf("TMP %c %c ",chaine1[i], chainetmp[i]);
-						}
-						printf("TMP %c %c ",chaine1[i], chainetmp[i]);
-						i++;
-					}
-					chainetmp[i]='\0';
-					printf("\n");
-					break;
+	if(choix == 1)
+	{
+		printf("puueeee \n");
+		while((i<N)&&(chaine1[i] != ':'))
+		{
+			if(chaine1[i] != ' ')
+			{
+
+				chainetmp[i]=chaine1[i];
+				printf("TMP %c %c ",chaine1[i], chainetmp[i]);
+			}
+			printf("TMP %c %c ",chaine1[i], chainetmp[i]);
+			i++;
+		}
+		chainetmp[i]='\0';
+		printf("\n");
+	}
 					
-		case '2' :	printf("puudzadazeee \n");
-					while((i<N)&&(chaine1[i] != ':'))
-					{
-						i++;
-					}
-					
-					while((i<N)&&(chaine1[i] != '('))
-					{
-						if(chaine1[i] != ' ')
-						{
-							chainetmp[i]=chaine1[i];
-							
-						}
-						printf("TMP %c %c ",chaine1[i], chainetmp[i]);
-						i++;
-					}
-					chainetmp[i]='\0';
-					printf("\n");
-					break;
+	if(choix == 1)
+	{
+		printf("puudzadazeee \n");
+		while((i<N)&&(chaine1[i] != ':'))
+		{
+			i++;
+		}
+		
+		while((i<N)&&(chaine1[i] != '('))
+		{
+			if(chaine1[i] != ' ')
+			{
+				chainetmp[i]=chaine1[i];		
+			}
+			printf("TMP %c %c ",chaine1[i], chainetmp[i]);
+			i++;
+		}
+		chainetmp[i]='\0';
+		printf("\n");
 	}
 	
 	strcpy(chaine2,chainetmp);
