@@ -27,10 +27,10 @@ void LireChaine(char chaine[])
 {
 	int i=0;
 	char chainetmp[N];
-	printf("Valeur %s \n",chaine1);
+	printf("Valeur %s %i \n",chaine1, choix);
 	switch (choix)
 	{
-		case '1':	printf("puueeee \n");
+		case '1' :	printf("puueeee \n");
 					while((i<N)&&(chaine1[i] != ':'))
 					{
 						if(chaine1[i] != ' ')
@@ -46,7 +46,7 @@ void LireChaine(char chaine[])
 					printf("\n");
 					break;
 					
-		case '2':	printf("puudzadazeee \n");
+		case '2' :	printf("puudzadazeee \n");
 					while((i<N)&&(chaine1[i] != ':'))
 					{
 						i++;
