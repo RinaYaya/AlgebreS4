@@ -13,12 +13,15 @@ int iQuit =0;
 char s[50];
 char s2[50];
 char s1[50];
+char s3[50];
+char Temp[50];
+Matrice	TabMat[10];
+Nombre TabNombre[10];
+int iVar=0, iMat=0, Ligne=0, col=0, iCptL=0, iCptC=0, iT=0;
 
 	while(iQuit == 0)
 	{	
-		Matrice	TabMat[10];
-		Nombre TabNombre[10];
-		int iVar=0;
+	
 		printf("> ");
 		LireChaine(s);
 		Argument(s,s2,0);
@@ -33,7 +36,42 @@ char s1[50];
 		{
 			if(strcmp(s2,"matrix")==0)
 			{
+				iT=0;
+				iCptC=0;
+				iCptL=0;
+				Ligne=NbLigne(chaine);
+				Col=NbColonne(chaine);
+				Col++;
 				
+				TabMat[iMat]=newMatrix(Ligne,Col);
+				
+				
+				while((i<N)&&(i!='\0'))
+				{
+					if(chaine[i] == '[')
+					{
+						iCptL++;
+					}
+					
+					if((chaine[i]>='0')&&(chaine[i]<='9'))
+					{
+						Temp[iT]=chaine[i];
+						iT++;
+					}
+					
+					if((chaine[i] == ',')||(chaine[i]== ']'))
+					{
+						
+						Temp[iT]='\0';
+						setElt(TabMatrice[iMat], iCptL-1,iCptC, atof(Temp));
+						iCptC++;
+						iT=0;
+						i=i+2;
+						
+					}
+					i++;
+				}
+				iMat++;
 			}
 			else
 				if(strcmp(s2,"mult")==0)
@@ -70,6 +108,7 @@ char s1[50];
 										{
 											TabNombre[iVar]=NewNombre(s1,atof(s2));
 											printf(" %s = %f \n",TabNombre[iVar]->variable,TabNombre[iVar]->valeur);
+											iVar++;
 										}
 										else
 										{
