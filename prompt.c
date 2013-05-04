@@ -56,7 +56,7 @@ void LireChaine(char chaine[])
 					}
 					chainetmp[i]='\0';
 					strcpy(chaine2,chainetmp);
-					printf("Valeur %s %s",chainetmp, chaine2);
+					printf("Valeur %s %s \n",chainetmp, chaine2);
 
 					break;
 					
