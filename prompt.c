@@ -47,7 +47,7 @@ void LireChaine(char chaine[])
 		printf("\n");
 	}
 					
-	if(choix == 1)
+	if(choix == 2)
 	{
 		printf("puudzadazeee \n");
 		while((i<N)&&(chaine1[i] != ':'))
