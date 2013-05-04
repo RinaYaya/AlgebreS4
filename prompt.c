@@ -85,7 +85,7 @@ Nombre NewNombre(char* nom, float a)
 	}
 	
 	strcpy(an->variable,nom);
-	an->variable=a;
+	an->valeur=a;
 	
 	return an;
 }
@@ -105,7 +105,7 @@ Matrice NewMatrice(char* nom, char chaine[])
 	
 	while(chaine[i] != '\0')
 	{
-		if(chaine[i]='[')
+		if(chaine[i] == '[')
 		{
 			rows++;
 		}
@@ -115,7 +115,7 @@ Matrice NewMatrice(char* nom, char chaine[])
 	i=0;
 	while((chaine[i] != '\0')&&(chaine[i] != ']'))
 	{
-		if(chaine[i]= ',')
+		if(chaine[i] == ',')
 		{
 			col++;
 		}
