@@ -63,7 +63,7 @@ char s1[50];
 									}
 									else
 									{
-										printf("%s : function not implemented");
+										printf("%s : function not implemented",s2);
 									}
 		}
 	}
