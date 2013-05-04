@@ -23,7 +23,7 @@ void LireChaine(char chaine[])
  * \return void
  *  \pre 
  */
-void Argument(char chaine1[],char chaine2[],int choix)
+ Argument(char chaine1[],char chaine2[],int choix)
 {
 	int i=0;
 	char chainetmp[N];
@@ -33,6 +33,7 @@ void Argument(char chaine1[],char chaine2[],int choix)
 					{
 						if(chaine1[i] != ' ')
 						{
+						
 							chainetmp[i]=chaine1[i];
 						}
 						i++;
@@ -54,8 +55,9 @@ void Argument(char chaine1[],char chaine2[],int choix)
 						i++;
 					}
 					chainetmp[i]='\0';
-					
 					strcpy(chaine2,chainetmp);
+					printf("Valeur %s %s",chainetmp, chaine 2);
+
 					break;
 					
 
