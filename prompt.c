@@ -48,7 +48,6 @@ void LireChaine(char chaine[])
 		printf("F\n");
 		while((i<N)&&(chaine1[i] != ':'))
 		{
-			printf("f ");
 			i++;
 		}
 		
