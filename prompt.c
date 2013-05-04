@@ -34,10 +34,11 @@ void LireChaine(char chaine[])
 					{
 						if(chaine1[i] != ' ')
 						{
-							printf("TMP %c \n",chaine1[i]);
+
 							chainetmp[i]=chaine1[i];
 							printf("TMP %c %c ",chaine1[i], chainetmp[i]);
 						}
+						printf("TMP %c %c ",chaine1[i], chainetmp[i]);
 						i++;
 					}
 					chainetmp[i]='\0';
@@ -54,8 +55,9 @@ void LireChaine(char chaine[])
 						if(chaine1[i] != ' ')
 						{
 							chainetmp[i]=chaine1[i];
-							printf("TMP %c %c ",chaine1[i], chainetmp[i]);
+							
 						}
+						printf("TMP %c %c ",chaine1[i], chainetmp[i]);
 						i++;
 					}
 					chainetmp[i]='\0';
