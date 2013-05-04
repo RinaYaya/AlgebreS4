@@ -12,5 +12,5 @@
 #include <string.h>
 //-----------------------------Prototype--------------------------------
 void LireChaine(char chaine[]);
-void Argument1(char chaine1[], char chaine2[]);
+void Argument1(char chaine1[], char chaine2[],int choix);
 #endif

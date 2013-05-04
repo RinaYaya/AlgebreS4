@@ -15,19 +15,23 @@ void LireChaine(char chaine[])
     chaine[strlen(chaine) - 1] = '\0';  
 } 
 //----------------------------------------------------------------------
-void Argument1(char chaine1[],char chaine2[])
+void Argument(char chaine1[],char chaine2[],int choix)
 {
 	int i=0;
 	
-	while((i<4)&&(chaine1[i] != ':'))
+	if(choix == 1)
 	{
-		if(chaine1[i] != ' ')
+		while((i<4)&&(chaine1[i] != ':'))
 		{
-			chaine2[i]=chaine1[i];
+			if(chaine1[i] != ' ')
+			{
+				chaine2[i]=chaine1[i];
+			}
+			i++;
 		}
-		i++;
+		chaine2[i]='\0';
 	}
 	
-	chaine2[i]='\0';
+	
 }
 //----------------------------------------------------------------------
