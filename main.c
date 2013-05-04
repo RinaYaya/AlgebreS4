@@ -1,7 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-
+//----------------------------------------------------------------------
+void LireChaine(char chaine[], int size) 
+{  
+    fgets(chaine, size, stdin);  
+    chaine[strlen(chaine) - 1] = '\0';  
+}  
+//----------------------------------------------------------------------
 int main ()
 {
 
@@ -9,15 +15,9 @@ char s[50];
 int i=0;
 	while(1)
 	{
-		i=0;
-		//on vide le buffer
-		while(s[i] != '\0')
-		{
-			i++;
-		}
-		
+
 		printf("> ");
-		scanf("%s ",s);
+		LireChaine(s,50);
 		printf("%s \n",s);
 		
 		
