@@ -11,6 +11,7 @@ int main ()
 
 char s[50];
 char s2[50];
+char s1[50];
 	
 		printf("> ");
 		LireChaine(s);
@@ -18,7 +19,8 @@ char s2[50];
 
 
 	Argument(s,s2,1);
-	
+	Argument(s,s1,2);
+	printf("dada %s %s \n",s1,s2);
 	//~ switch (s2)
 	//~ {
 		//~ case "a":
