@@ -19,7 +19,7 @@ void Argument1(char chaine1[],char chaine2[])
 {
 	int i=0;
 	
-	while((i<4)&&(chaine1[i] != ':')
+	while((i<4)&&(chaine1[i] != ':'))
 	{
 		if(chaine1[i] != ' ')
 		{
