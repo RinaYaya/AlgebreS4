@@ -11,7 +11,7 @@ char s2[50];
 	while(1)
 	{
 		printf("> ");
-		LireChaine(s,50);
+		LireChaine(s);
 		printf("%s \n",s);
 	}
 

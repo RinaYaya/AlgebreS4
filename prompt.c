@@ -15,7 +15,7 @@ void LireChaine(char chaine[])
     chaine[strlen(chaine) - 1] = '\0';  
 } 
 //----------------------------------------------------------------------
-void Argument1(char chaine1[], chaine2[])
+void Argument1(char chaine1[],char chaine2[])
 {
 	int i=0;
 	
