@@ -11,7 +11,7 @@ char s[50];
 	{
 		printf("> ");
 		scanf("%s ",s);
-		prinf("%s \n",s);
+		printf("%s \n",s);
 		
 		
 	}
