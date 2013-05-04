@@ -16,10 +16,14 @@ char s1[50];
 
 	while(iQuit == 0)
 	{	
+		Matrice	TabMat[10];
+		Nombre TabNombre[10];
+		int iVar=0;
 		printf("> ");
 		LireChaine(s);
 		Argument(s,s2,0);
 		Argument(s,s1,1);
+		
 		
 		if(strcmp(s1,"quit") ==0)
 		{
@@ -29,7 +33,7 @@ char s1[50];
 		{
 			if(strcmp(s2,"matrix")==0)
 			{
-			
+				
 			}
 			else
 				if(strcmp(s2,"mult")==0)
@@ -64,7 +68,8 @@ char s1[50];
 									else
 										if((s2[0] >= '0')&&(s2[0] <= '9'))
 										{
-											printf("variable \n");
+											TabNombre[iVar]=NewNombre(s1,atoi(s2));
+											printf(" %s = %d \n",TabNombre->variable,TabNombre->valeur);
 										}
 										else
 										{
