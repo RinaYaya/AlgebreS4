@@ -26,18 +26,18 @@ void LireChaine(char chaine[])
 void Argument(char chaine1[],char chaine2[],int choix)
 {
 	int i=0;
-	
+	char* chainetmp[N];
 	switch (choix)
 	{
 		case '1':	while((i<N)&&(chaine1[i] != ':'))
 					{
 						if(chaine1[i] != ' ')
 						{
-							chaine2[i]=chaine1[i];
+							chainetmp[i]=chaine1[i];
 						}
 						i++;
 					}
-					chaine2[i]='\0';
+					chainetmp[i]='\0';
 					break;
 					
 		case '2':	while((i<N)&&(chaine1[i] != ':'))
@@ -49,11 +49,13 @@ void Argument(char chaine1[],char chaine2[],int choix)
 					{
 						if(chaine1[i] != ' ')
 						{
-							chaine2[i]=chaine1[i];
+							chainetmp[i]=chaine1[i];
 						}
 						i++;
 					}
-					chaine2[i]='\0';
+					chainetmp[i]='\0';
+					
+					strcpy(chaine2,chainetmp);
 					break;
 					
 
