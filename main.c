@@ -62,7 +62,7 @@ char s1[50];
 										printf(" SP \n");
 									}
 									else
-										if(s2[0] >= '0')&&(s2[0] <= '9')
+										if((s2[0] >= '0')&&(s2[0] <= '9'))
 										{
 											printf("variable \n");
 										}
