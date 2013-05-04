@@ -1,4 +1,7 @@
 #include "prompt.h"
+#include "operation.h"
+#include "matrix.h"
+include "resol.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -14,7 +17,12 @@ char s2[50];
 
 	Argument1(s,s2);
 	
-	printf(" RECUPERE : %s",s2);
+	switch s2
+	{
+		case "a":
+				break;
+				
+	}
 
   return 0;
 }
