@@ -15,6 +15,8 @@ char s2[50];
 		printf("> ");
 		LireChaine(s);
 
+
+
 	Argument1(s,s2,1);
 	
 	//~ switch (s2)

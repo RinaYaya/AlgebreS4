@@ -6,7 +6,7 @@ main : main.o prompt.o operations.o matrix.o resol.o
 main.o : main.c prompt.h
 	gcc $(CFLAGS) -c main.c 
 	
-prompt.o : prompt.h prompt.c
+prompt.o : prompt.h prompt.c matrix.h operations.h resol.h
 	gcc $(CFLAGS) -c prompt.c
 
 matrix.o : matrix.c matrix.h
