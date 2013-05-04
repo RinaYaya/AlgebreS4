@@ -109,24 +109,8 @@ Matrice NewMatrice(char* nom, char chaine[])
 	Matrice a = malloc(sizeof(StrMatrice));
 	int rows=0,i=0, col=0;
 	
-	while(chaine[i] != '\0')
-	{
-		if(chaine[i] == '[')
-		{
-			rows++;
-		}
-		i++;
-	}
-	
-	i=0;
-	while((chaine[i] != '\0')&&(chaine[i] != ']'))
-	{
-		if(chaine[i] == ',')
-		{
-			col++;
-		}
-		i++;
-	}
+	rows=NbLigne(chaine);
+	col=NbColonne(chaine);
 	if(a == NULL)
 	{
 		printf("Probleme MALLOC: NewNombre");
@@ -136,4 +120,48 @@ Matrice NewMatrice(char* nom, char chaine[])
 	a->matrice=newMatrix(rows,col);
 	return a;
 	
+}
+//----------------------------------------------------------------------
+/**
+ * \fn int NbLigne(char chaine[])
+ * \brief compte les lignes d'une matrice
+ * \param Chaine contenant les infos de la matrice
+ * \return nombre de lignes
+ *  \pre 
+ */
+int NbLigne(char chaine[])
+{
+	int i=0;
+	
+	while(chaine[i] != '\0')
+	{
+		if(chaine[i] == '[')
+		{
+			rows++;
+		}
+		i++;
+	}
+	 return i;
+}
+//----------------------------------------------------------------------
+/**
+ * \fn int iNbColonne(char chaine[])
+ * \brief compte les colonnes d'une matrice
+ * \param Chaine contenant les infos de la matrice
+ * \return nombre de colonnes
+ *  \pre 
+ */
+int iNbColonne(char chaine[])
+{
+	int i=0, col=0;
+	
+	while((chaine[i] != '\0')&&(chaine[i] != ']'))
+	{
+		if(chaine[i] == ',')
+		{
+			col++;
+		}
+		i++;
+	}
+	return col;
 }

@@ -29,7 +29,7 @@ char s1[50];
 		{
 			if(strcmp(s2,"matrix")==0)
 			{
-		
+			
 			}
 			else
 				if(strcmp(s2,"mult")==0)

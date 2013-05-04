@@ -24,5 +24,6 @@ Nombre NewNombre(char* nom, float a);
 float getValNombre(Nombre x);
 Matrice NewMatrice(char* nom, char chaine[]);
 Matrix getMatrice(Matrice m);
-
+int NbLigne(char chaine[]);
+int iNbColonne(char chaine[]);
 #endif
