@@ -15,6 +15,14 @@ void LireChaine(char chaine[])
     chaine[strlen(chaine) - 1] = '\0';  
 } 
 //----------------------------------------------------------------------
+/**
+ * \fn void Argument(char chaine1[],char chaine2[],int choix)
+ * \brief Split la chaine et recupere l'element a gauche ou a droite de ':'
+ * \param chaine1[] chaine de caractere a splitter
+ * \param chaine[] chaine de caractere pour stocker le resultat
+ * \return void
+ *  \pre 
+ */
 void Argument(char chaine1[],char chaine2[],int choix)
 {
 	int i=0;
