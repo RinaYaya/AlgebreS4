@@ -20,7 +20,7 @@ char s1[50];
 
 	Argument(s,s2,1);
 	Argument(s,s1,2);
-	printf("dada %s %s %s \n",s1,s2,s);
+	printf("| %s | %s | %s \n",s1,s2,s);
 	//~ switch (s2)
 	//~ {
 		//~ case "a":
