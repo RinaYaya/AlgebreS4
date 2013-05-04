@@ -18,7 +18,7 @@ char s1[50];
 
 
 
-	Argument(s,s2,1);
+	Argument(s,s2,2);
 	//~ Argument(s,s1,2);
 	printf("V %s \n",s2);
 	//~ switch (s2)
