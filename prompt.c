@@ -126,7 +126,7 @@ Matrice NewMatrice(char* nom, char chaine[])
 		printf("Probleme MALLOC: NewNombre");
 	}
 	
-	a->variable=malloc(20*sizeof(char));
+	a->nom=malloc(20*sizeof(char));
 	a->matrice=newMatrix(rows,col);
 	return a;
 	
