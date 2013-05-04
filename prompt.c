@@ -31,6 +31,7 @@ void LireChaine(char chaine[])
 
 	if(choix == 1)
 	{
+		printf("f\n");
 		while((i<N)&&(chaine1[i] != ':'))
 		{
 			if(chaine1[i] != ' ')
@@ -44,10 +45,13 @@ void LireChaine(char chaine[])
 					
 	if(choix == 2)
 	{
+		printf("F\n");
 		while((i<N)&&(chaine1[i] != ':'))
 		{
+			printf("f ");
 			i++;
 		}
+		
 		
 		while((i<N)&&(chaine1[i] != '('))
 		{
