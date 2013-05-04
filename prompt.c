@@ -52,6 +52,7 @@ void LireChaine(char chaine[])
 			i++;
 		}
 		
+		i+=2;
 		
 		while((i<N)&&(chaine1[i] != '('))
 		{
