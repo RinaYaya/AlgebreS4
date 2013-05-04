@@ -64,6 +64,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0;
 					{
 						
 						Temp[iT]='\0';
+						printf(" AJOUT %f \n",Temp);
 						setElt(TabMat[iMat]->matrice, iCptL-1,iCptC, atof(Temp));
 						iCptC++;
 						iT=0;
