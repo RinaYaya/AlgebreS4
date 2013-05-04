@@ -1,7 +1,7 @@
 #include "prompt.h"
 #include "operation.h"
 #include "matrix.h"
-include "resol.h"
+#include "resol.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
