@@ -29,7 +29,7 @@ char s1[50];
 		{
 			if(strcmp(s2,"matrix")==0)
 			{
-				printf(" Matrix \n");
+		
 			}
 			else
 				if(strcmp(s2,"mult")==0)
@@ -62,9 +62,14 @@ char s1[50];
 										printf(" SP \n");
 									}
 									else
-									{
-										printf("%s : function not implemented",s2);
-									}
+										if(s2[0] >= '0')&&(s2[0] <= '9')
+										{
+											printf("variable \n");
+										}
+										else
+										{
+											printf("%s : function not implemented \n",s2);
+										}
 		}
 	}
   return 0;
