@@ -60,3 +60,44 @@ void Argument(char chaine1[],char chaine2[],int choix)
 	}
 }
 //----------------------------------------------------------------------
+/**
+ * \fn Nombre NewNombre(char* nom, float a)
+ * \brief Creer un nouveau nombre
+ * \param nom nom de la variable
+ * \param float valeur
+ * \return Nombre
+ *  \pre 
+ */
+Nombre NewNombre(char* nom, float a)
+{
+	Nombre a = malloc(sizeof(StrNombre));
+	
+	if(a == NULL)
+	{
+		printf("Probleme MALLOC: NewNombre");
+	}
+	
+	a->variable=malloc(20*sizeof(char));
+	
+	if(a->variable == NULL)
+	{
+		printf("Probleme MALLOC: NewNombre");
+	}
+	
+	strcpy(a->variable,nom);
+	a->variable=a;
+	
+	return a;
+}
+//----------------------------------------------------------------------
+/**
+ * \fn Matrice NewMatrice(char* nom, char chaine[])
+ * \brief Creer une nouvelle Matrice
+ * \param nom nom de la variable
+ * \param Chaine contenant les infos de la matrice
+ * \return Nombre
+ *  \pre 
+ */
+Matrice NewMatrice(char* nom, char chaine[])
+{
+}

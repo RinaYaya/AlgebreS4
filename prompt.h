@@ -10,7 +10,16 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+//-----------------------------Structure--------------------------------
+typedef struct {char *variable; float valeur; } StrNombre, *Nombre;
+typedef struct {char *variable; matrix matrice;} StrMatrice, *Matrice;
+
 //-----------------------------Prototype--------------------------------
 void LireChaine(char chaine[]);
 void Argument1(char chaine1[], char chaine2[],int choix);
+Nombre NewNombre(char* nom, float a);
+float getValNombre(Nombre x);
+Matrice NewMatrice(char* nom, char chaine[]);
+Matrix getMatrice(Matrice m);
+
 #endif
