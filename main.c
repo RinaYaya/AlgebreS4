@@ -45,9 +45,8 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0;
 				Col=NbColonne(s);
 				Col++;
 				
-				TabMat[iMat]=newMatrix(Ligne,Col);
-				
-				
+				TabMat[iMat]=NewMatrice(s1,s2);
+		
 				while((i<N)&&(i!='\0'))
 				{
 					if(s[i] == '[')
@@ -65,7 +64,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0;
 					{
 						
 						Temp[iT]='\0';
-						setElt(TabMat[iMat], iCptL-1,iCptC, atof(Temp));
+						setElt(TabMat[iMat]->matrice, iCptL-1,iCptC, atof(Temp));
 						iCptC++;
 						iT=0;
 						i=i+2;
