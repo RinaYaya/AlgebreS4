@@ -10,7 +10,7 @@
 int main ()
 {
 	
-	matrix m = newMatrix(3,3);
+	Matrix m = newMatrix(3,3);
 	int i=0,j=0;
 	float k=0.0;
 	for(i=0; i<3; i++)
