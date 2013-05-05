@@ -67,16 +67,15 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 				Ligne=NbLigne(s);
 				Col=NbColonne(s);
 				Col++;
-				printf(" L %d C %d %s \n",Ligne,Col,s);
 				TabMat[iMat]=NewMatrice(s1,s2);
 					while( (i<N)&&(s[i] != ':'))
 					{
 						printf("%c ",s[i]);
-						i++;
+						i+=2;
 					}
 				while((i<N)&&(s[i] != '\0'))
 				{
-
+					printf(" Vu %c \n",s[i]);
 					
 					if(s[i] == '[')
 					{
@@ -88,7 +87,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 					
 					if(((s[i]>='0')&&(s[i]<='9'))&&(ouvert==1))
 					{
-						//~ printf(" 	Entrer dans 0-9 \n");
+						printf(" 	Entrer dans 0-9 \n");
 						Temp[iT]=s[i];
 						iT++;
 					}
@@ -106,6 +105,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 					
 					if(s[i]== ']')
 					{
+						printf(" Entrer ] \n");
 						ouvert =0;
 						iCptC=0;
 						iCptL++;
