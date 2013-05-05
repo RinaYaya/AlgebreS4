@@ -76,6 +76,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 					i=i+2;
 					
 					printf(" FIN : \n",s[i]);
+					
 				while((i<N)&&(s[i] != '\0'))
 				{
 					printf(" Vu %c \n",s[i]);
@@ -94,7 +95,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 						iT++;
 					}
 					
-					if(((s[i] == ',')||(s[i] == ']')))
+					if(s[i] == ',')
 					{
 						//~ printf(" 	Entrer dans , ] \n");
 						Temp[iT]='\0';
