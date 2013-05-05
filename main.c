@@ -63,10 +63,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 						iCptL++;
 					}
 					
-					if(s[i]== ']')
-					{
-						ouvert =0;
-					}
+
 					
 					if(((s[i]>='0')&&(s[i]<='9'))&&(ouvert==1))
 					{
@@ -75,7 +72,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 						iT++;
 					}
 					
-					if((s[i] == ',')&&(ouvert == 1))
+					if(((s[i] == ',')||(s[i] == ']'))&&(ouvert == 1))
 					{
 						printf(" 	Entrer dans , ] \n");
 						Temp[iT]='\0';
@@ -84,6 +81,11 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 						iCptC++;
 						iT=0;
 						
+					}
+					
+					if(s[i]== ']')
+					{
+						ouvert =0;
 					}
 					i++;
 				}
