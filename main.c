@@ -26,7 +26,7 @@ int main ()
 	{
 		for(j=0; j<3; j++)
 		{
-			printf(" %f ",getElt(m,i,j,k));
+			printf(" %f ",getElt(m,i,j));
 		}
 		printf("\n");
 	}
