@@ -71,8 +71,9 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 					while( (i<N)&&(s[i] != ':'))
 					{
 						printf("%c ",s[i]);
-						i+=2;
+						i++;
 					}
+					i=i+2;
 					
 					printf(" FIN : \n",s[i]);
 				while((i<N)&&(s[i] != '\0'))
