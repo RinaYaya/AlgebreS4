@@ -22,7 +22,7 @@ void LireChaine(char chaine[]);
 void Argument(char chaine1[], char chaine2[],int choix);
 Nombre NewNombre(char* nom, float a);
 float getValNombre(Nombre x);
-Matrice NewMatrice(char* nom, char chaine[]);
+Matrice NewMatrice(char* nom, int L, int C);
 Matrix getMatrice(Matrice m);
 int NbLigne(char chaine[]);
 int NbColonne(char chaine[]);
