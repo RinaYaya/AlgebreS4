@@ -99,9 +99,9 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 					{
 						//~ printf(" 	Entrer dans , ] \n");
 						Temp[iT]='\0';
-						setElt(TabMat[iMat]->matrice, iCptL-1,iCptC, atof(Temp));
+						setElt(TabMat[iMat]->matrice, iCptL+1,iCptC+1, atof(Temp));
 						printf("m[ %d ][ %d ] ",iCptL,iCptC);
-						printf("= %f ajouté \n ",getElt(TabMat[iMat]->matrice, iCptL, iCptC));
+						printf("= %f ajouté \n ",getElt(TabMat[iMat]->matrice, iCptL+1, iCptC+1));
 						iCptC++;
 						iT=0;
 						
@@ -117,9 +117,9 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 					}
 					i++;
 				}
-				for(iCptL=0; iCptL <Ligne; iCptL++)
+				for(iCptL=1; iCptL <Ligne+1; iCptL++)
 				{
-					for(iCptC=0; iCptC<Col; iCptC++)
+					for(iCptC=1; iCptC<Col+1; iCptC++)
 					{
 						printf("m[ %d ][ %d ] = %f",iCptL,iCptC,getElt(TabMat[iMat]->matrice, iCptL, iCptC));
 					}

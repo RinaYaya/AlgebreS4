@@ -5,12 +5,13 @@
 Matrix newMatrix(int nb_rows, int nb_columns)
 {
 	Matrix m;
+	int i=0, j=0;
 	m = (Matrix) malloc(sizeof(struct matrix));
 	m->mat = (float*) malloc(nb_rows*nb_columns*sizeof(float));
 	m->nrows = nb_rows;
 	m->ncols = nb_columns;
 	
-	
+	for(
 	
 	return m;
 }
