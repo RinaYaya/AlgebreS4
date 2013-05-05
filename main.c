@@ -168,7 +168,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 					}
 					 
 					
-					TabMat[iMat]=NewMatrice(s1,NbLigne(TabMat[i1]->nrows ),NbColonne(TabMat[i2]->ncols ));
+					TabMat[iMat]=NewMatrice(s1,NbLigne(TabMat[i1]->matrice->nrows ),NbColonne(TabMat[i2]->matrice->ncols ));
 					strcpy(TabMat[iMat]->nom, s1);
 					TabMat[iMat]->matrice=multiplication(TabMat[i1]->matrice,TabMat[i2]->matrice);
 					
