@@ -161,14 +161,14 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 					}
 					 
 					
-					TabMat[iMat]=NewMatrice(s1,TabMat[i2]->matrice->nrows,TabMat[i1]->matrice->ncols );
-					printf(" RO %d CO %d \n",TabMat[i2]->matrice->nrows,TabMat[i1]->matrice->ncols);
+					TabMat[iMat]=NewMatrice(s1,TabMat[i1]->matrice->nrows,TabMat[i2]->matrice->ncols );
+					printf(" RO %d CO %d \n",TabMat[i1]->matrice->nrows,TabMat[i2]->matrice->ncols);
 					strcpy(TabMat[iMat]->nom, s1);
 					TabMat[iMat]->matrice=multiplication(TabMat[i1]->matrice,TabMat[i2]->matrice);
 					
 					for(iCptL=1; iCptL <TabMat[i2]->matrice->nrows+1; iCptL++)
 					{
-						for(iCptC=1; iCptC<TabMat[i1]->matrice->ncols; iCptC++)
+						for(iCptC=1; iCptC<TabMat[i1]->matrice->ncols+1; iCptC++)
 						{
 							printf("m[ %d ][ %d ] = %f",iCptL,iCptC,getElt(TabMat[iMat]->matrice, iCptL, iCptC));
 						}
