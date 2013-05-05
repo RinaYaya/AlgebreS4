@@ -75,7 +75,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 						iT++;
 					}
 					
-					if((s[i] == ',')&&(ouvert == 1)
+					if((s[i] == ',')&&(ouvert == 1))
 					{
 						printf(" 	Entrer dans , ] \n");
 						Temp[iT]='\0';
