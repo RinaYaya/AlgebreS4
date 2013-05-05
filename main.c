@@ -165,9 +165,9 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 					strcpy(TabMat[iMat]->nom, s1);
 					TabMat[iMat]->matrice=multiplication(TabMat[i1]->matrice,TabMat[i2]->matrice);
 					
-					for(iCptL=0; iCptL <Ligne; iCptL++)
+					for(iCptL=1; iCptL <Ligne+1; iCptL++)
 					{
-						for(iCptC=0; iCptC<Col; iCptC++)
+						for(iCptC=1; iCptC<Col+1; iCptC++)
 						{
 							printf("m[ %d ][ %d ] = %f",iCptL,iCptC,getElt(TabMat[iMat]->matrice, iCptL, iCptC));
 						}
