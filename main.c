@@ -165,7 +165,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 					strcpy(TabMat[iMat]->nom, s1);
 					TabMat[iMat]->matrice=multiplication(TabMat[i1]->matrice,TabMat[i2]->matrice);
 					
-					for(iCptL=1; iCptL <TabMat[i1]->matrice->nrows; iCptL++)
+					for(iCptL=1; iCptL <TabMat[i1]->matrice->nrows+1; iCptL++)
 					{
 						for(iCptC=1; iCptC<TabMat[i2]->matrice->ncols; iCptC++)
 						{
