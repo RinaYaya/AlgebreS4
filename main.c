@@ -159,7 +159,8 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 							i2=i;
 						}	
 					}
-					 
+					 printf(" T1 : %s \n ", tmp1[0]);
+					  printf(" T2 : %s \n ", tmp1[1]);
 					
 					TabMat[iMat]=NewMatrice(s1,TabMat[i1]->matrice->nrows,TabMat[i2]->matrice->ncols );
 					printf("%s: %d %s : %d \n",TabMat[i1]->nom,TabMat[i1]->matrice->nrows,TabMat[i2]->nom,TabMat[i2]->matrice->ncols);
