@@ -89,18 +89,17 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 					
 					if(((s[i]>='0')&&(s[i]<='9'))&&(ouvert==1))
 					{
-						printf(" 	Entrer dans 0-9 \n");
+						//~ printf(" 	Entrer dans 0-9 \n");
 						Temp[iT]=s[i];
 						iT++;
 					}
 					
 					if(((s[i] == ',')||(s[i] == ']'))&&(ouvert == 1))
 					{
-						printf(" 	Entrer dans , ] \n");
+						//~ printf(" 	Entrer dans , ] \n");
 						Temp[iT]='\0';
-						printf(" AJOUT %f \n",atof(Temp));
 						setElt(TabMat[iMat]->matrice, iCptL,iCptC, atof(Temp));
-						printf("%f ajouté \n",getElt(TabMat[iMat]->matrice, iCptL, iCptC));
+						printf("m[ %d ][ %d ] = %f ajouté ",iCptL,iCptC,getElt(TabMat[iMat]->matrice, iCptL, iCptC));
 						iCptC++;
 						iT=0;
 						
