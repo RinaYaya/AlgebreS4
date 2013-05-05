@@ -31,7 +31,7 @@ int main ()
 		//~ printf("\n");
 	//~ }
 	//~ 
-
+arguments a;
 int iQuit =0;
 char s[50];
 char s2[50];
@@ -202,6 +202,13 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 									if(strcmp(s2,"speedtest")==0)
 									{
 										printf(" SP \n");
+										//speedTest
+										//~ a=chargeArguments(s);
+										//~ for(i=0;i<a->nbArg;i++)
+										//~ {
+											//~ printf("%s \n",a->tab[i]);
+										//~ }
+										speedTest("add", 5, 50, 5,3);
 									}
 									else
 										if((s2[0] >= '0')&&(s2[0] <= '9'))

@@ -16,6 +16,7 @@
 //-----------------------------Structure--------------------------------
 typedef struct {char *variable; float valeur; } StrNombre, *Nombre;
 typedef struct {char *nom; Matrix matrice;} StrMatrice, *Matrice;
+typedef struct { char** tab; int nbArg; int taille;} StrArguments,*arguments;
 
 //-----------------------------Prototype--------------------------------
 void LireChaine(char chaine[]);
@@ -26,4 +27,5 @@ Matrice NewMatrice(char* nom, int L, int C);
 Matrix getMatrice(Matrice m);
 int NbLigne(char chaine[]);
 int NbColonne(char chaine[]);
+arguments chargeArguments(char* arg);
 #endif

@@ -166,3 +166,34 @@ int NbColonne(char chaine[])
 	return col;
 }
 //----------------------------------------------------------------------
+
+arguments chargeArguments(char* arg)
+{
+	int i=0;
+	arguments a=malloc(sizeof(StrArguments));
+	a->taille=6;
+	a->nbArg=0;
+	a->tab=malloc(a->taille*sizeof(char*));
+	char* Arg=malloc(50*sizeof(char));
+	
+	while(arg[i]!='\0')
+	{
+		while(arg[i]!=' ')
+		{
+			Arg[i]=arg[i];
+			i++;
+		}
+		if(a->nbArg+1>a->taille)
+		{
+			a->taille=a->taille*2;
+			a->tab=realloc(a->tab,a->taille*sizeof(char*));
+		}
+		a->tab[a->nbArg]=Arg;
+		a->nbArg++;
+		while(arg[i]==' ')
+		 {
+			 i++;
+		 }
+	}
+	return a;
+}

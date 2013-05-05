@@ -1,7 +1,7 @@
 CFLAGS = -g -Wall
 LIB = -lm
-main : main.o prompt.o operations.o matrix.o resol.o
-	gcc $(CFLAGS) -o main main.o prompt.o operations.o matrix.o resol.o $(LIB)
+main : main.o prompt.o operations.o matrix.o resol.o speedtest.o
+	gcc $(CFLAGS) -o main main.o prompt.o operations.o matrix.o resol.o speedtest.o $(LIB)
 	
 main.o : main.c prompt.h
 	gcc $(CFLAGS) -c main.c 
@@ -17,6 +17,9 @@ operations.o : operations.c operations.h matrix.h
 	
 resol.o : resol.c resol.h operations.h matrix.h
 	gcc $(CFLAGS) -c resol.c $(LIB)
+	
+speedtest.o: speedtest.c resol.h operations.h matrix.h
+	gcc $(CFLAGS) -c speedtest.c $(LIB)
 	
 archive : 
 	tar -f Oleemahomed_Thierry.tar.gz -cvz *.c *.h *.txt makefile

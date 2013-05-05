@@ -9,7 +9,7 @@
  * \param t temps de calcul de la multiplication des matrices
  * \return void
  */
-void ecritureFichier(int n, double t, char *foutput) { 
+void ecritureFichier(int n, int t, char *foutput) { 
 	FILE* fichier = NULL;
 	fichier = fopen(foutput, "a");
 	
@@ -17,7 +17,7 @@ void ecritureFichier(int n, double t, char *foutput) {
 	if(fichier != NULL)
 	{
 		//écriture dans le fichier
-		fprintf(fichier, "%d %f\n", n, t);
+		fprintf(fichier, "%d %d\n", n, t);
 		fclose(fichier);
 	}
 }
@@ -33,10 +33,16 @@ void ecritureFichier(int n, double t, char *foutput) {
 void fichierCmde(char* foutput)
 { 
 	FILE* fichier = NULL;
-	gnu = fopen("speedTest.gp", "w+");
-	if(gnu != NULL) {
-		fprintf(gnu, "set terminal png size 600, 400\nset output 'speedTest.png'\nplot \"%s\" u 2 title 't' with lines, \\\n\"%s\" using 4 title 'n' with lines\n", foutput, foutput);
-		fclose(gnu);
+	fichier = fopen("speedTest.gp", "w+");
+	if(fichier != NULL) {
+		fprintf(fichier, "set terminal png size 600, 400\n");
+		fprintf(fichier, "set xlabel \"Taille des matrices\"\n");
+		fprintf(fichier, "set ylabel \"Temps de calcul (en µs) \"\n");
+		fprintf(fichier, "set grid \n");
+		fprintf(fichier, "set zeroaxis \n");
+		fprintf(fichier, "set title \"Temps de calcul en fonction de la taille des matrices\"\n");
+		fprintf(fichier,"set output \"speedTest.png\"\nplot \"%s\"\n",  foutput);
+		fclose(fichier);
 	}
 	
 	system("gnuplot < speedTest.gp");
@@ -44,29 +50,31 @@ void fichierCmde(char* foutput)
 
 //---------------------------------------------------------------------------------------------------------
 
-int commande(char* cmd,matrix a, matrix b)
+int commande(char* cmd,Matrix a, Matrix b)
 {
 	struct timeval start, end;
 	int temps=0;
-	matrix m;
-	switch(cmd)
+	Matrix m;
+	printf("%c\n",cmd[0]);
+	switch(cmd[0])
 	{
 		
-		case "addition":
+		case 'a':
 						gettimeofday(&start, NULL);
 						m=addition(a,b);
 						gettimeofday(&end, NULL);
 						temps =fabs(end.tv_usec - start.tv_usec); // temps (µs)
+						printf("temps : %d\n",temps);
 						break;
 						
-		case "mult":
+		case 'm':
 						gettimeofday(&start, NULL);
 						m=multiplication(a,b);
 						gettimeofday(&end, NULL);
 						temps =fabs(end.tv_usec - start.tv_usec); // temps (µs)
 						break;
 						
-		case "sub":
+		case 's':
 						gettimeofday(&start, NULL);
 						m=soustraction(a,b);
 						gettimeofday(&end, NULL);
@@ -83,41 +91,27 @@ int commande(char* cmd,matrix a, matrix b)
 
 void speedTest(char* cmd,int tailleMin,int tailleMax,int pas, int nbSec) {
 	int i;
+	int temps=0;
+	Matrix a=NULL,b=NULL;
 	for(i=tailleMin;i<=tailleMax;i+=pas)
 	{
-		
+		//génère un couple de matrice de taille i*i
+		a=aleatoire(a,i,i,MIN,MAX);
+		b=aleatoire(b,i,i,MIN,MAX);
+		temps=commande(cmd,a,b);
+		if(temps/1000>nbSec)
+		{
+			printf("le temps de calcul est supérieur à %ds\n",nbSec);
+			exit(0);
+		}
+		else
+		{
+			ecritureFichier(i,temps,"speedTest.data");
+		}
 	}
 	
-	//~ 
-	//~ srand48(time(NULL));
-	//~ 
-	//~ int taille_min = atoi(argv[1]);
-	//~ int inc = atoi(argv[2]);
-	//~ int nb_matrices = atoi(argv[3]);
-	//~ int n = taille_min, i; double t1; double t2;
-	//~ 
-	//~ Matrix m = NULL;
-	//~ 
-//~ 
-	//~ for(i = 0; i < nb_matrices; i++) {
-		//~ m = aleatoire(m, n, n, 0, 100); // matrice aléatoire n*n
-		//~ 
-		//~ 
-		//~ determinant_naif(m, n); // naif
-		//~ 
-		//~ 
-		//~ gettimeofday(&start, NULL);
-		//~ determinant_opt(m); // optimal
-		//~ gettimeofday(&end, NULL);
-		//~ t2 = end.tv_usec - start.tv_usec; // temps 2 (µs)
-		//~ 
-		//~ sauvegarder(n, t1/10000, t2/10000, argv[4]); // écriture dans foutput
-		//~ n += inc;
-	//~ }
-	//~ 
-	//~ deleteMatrix(m);
-	//~ 
-	//~ plot(argv[4]); // écriture resultat.gnu, génération resultat.png
-	//~ 
-	//~ return 0;
+	deleteMatrix(a);
+	deleteMatrix(b);
+	
+	fichierCmde("speedTest.data");
 }
