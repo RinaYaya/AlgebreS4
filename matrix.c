@@ -11,8 +11,6 @@ Matrix newMatrix(int nb_rows, int nb_columns)
 	m->nrows = nb_rows;
 	m->ncols = nb_columns;
 	
-	for(
-	
 	return m;
 }
 
