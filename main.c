@@ -37,10 +37,10 @@ char s[50];
 char s2[50];
 char s1[50];
 char s3[50];
-char Temp[50];
+char Temp[50], tmp1[1][50];
 Matrice	TabMat[10];
 Nombre TabNombre[10];
-int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
+int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0, imult2=0, i1=0, i2=0;
 
 	while(iQuit == 0)
 	{	
@@ -67,7 +67,8 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 				Ligne=NbLigne(s);
 				Col=NbColonne(s);
 				Col++;
-				TabMat[iMat]=NewMatrice(s1,s2);
+				
+				TabMat[iMat]=NewMatrice(s1,Ligne, Col);
 					while( (i<N)&&(s[i] != ':'))
 					{
 						printf("%c ",s[i]);
@@ -130,7 +131,57 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 			else
 				if(strcmp(s2,"mult")==0)
 				{
-					printf(" Multiplication \n");
+					i=0
+					imult=0;
+					imult2=0;
+					while((i<N)&&(s[i] != '\0'))
+					{
+						while(s[i] != '(')
+						{
+							i++;
+						}
+						
+						if((s[i] != ' ')&&(s[i] != '('))
+						{
+							tmp1[imult][imult2]=s[i];
+							imult2++;
+						}
+						
+						if(s[i] == ',')
+						{
+							imult++;
+							imult2=0;
+						}
+						i++;
+					}
+					
+					for(i=0; i<iMat; i++)
+					{
+						if(strcmp(TabMat[i]->nom,tmp1[0]) == 0)
+						{
+							i1=i;
+						}
+						if(strcmp(TabMat[i]->nom,tmp1[1]) == 0)
+						{
+							i2=i;
+						}	
+					}
+					 
+					
+					TabMat[iMat]=NewMatrice(s1,NbLigne(TabMat[i1]->matrice),NbColonne(TabMat[i2]->matrice));
+					strcpy(TabMat[iMat]->nom, s1);
+					TabMat[iMat]->matrice=multiplication(TabMat[i1]->matrice,TabMat[i2]->matrice);
+					
+					for(iCptL=0; iCptL <Ligne; iCptL++)
+					{
+						for(iCptC=0; iCptC<Col; iCptC++)
+						{
+							printf("m[ %d ][ %d ] = %f",iCptL,iCptC,getElt(TabMat[iMat]->matrice, iCptL, iCptC));
+						}
+						
+						printf("\n");
+					}
+					iMat++;
 				}
 				else
 					if(strcmp(s2,"invert")==0)

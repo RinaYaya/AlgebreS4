@@ -104,19 +104,19 @@ Nombre NewNombre(char* nom, float a)
  * \return Nombre
  *  \pre 
  */
-Matrice NewMatrice(char* nom, char chaine[])
+Matrice NewMatrice(char* nom, int L, int C)
 {
 	Matrice a = malloc(sizeof(StrMatrice));
-	int rows=0,i=0, col=0;
+	int rows=L,i=0, col=C;
 	
-	rows=NbLigne(chaine);
-	col=NbColonne(chaine);
+
 	if(a == NULL)
 	{
 		printf("Probleme MALLOC: NewNombre");
 	}
 	
 	a->nom=malloc(20*sizeof(char));
+	strcpy(a->nom,nom);
 	a->matrice=newMatrix(rows,col);
 	return a;
 	
