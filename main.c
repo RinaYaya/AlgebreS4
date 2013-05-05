@@ -37,6 +37,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0;
 		{
 			if(strcmp(s2,"matrix")==0)
 			{
+				printf(" Entrer dans matrix \n");
 				i=0;
 				iT=0;
 				iCptC=0;
@@ -44,10 +45,10 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0;
 				Ligne=NbLigne(s);
 				Col=NbColonne(s);
 				Col++;
-				
+				printf(" L %d C %d \n",Ligne,Col);
 				TabMat[iMat]=NewMatrice(s1,s2);
 		
-				while((i<N)&&(i!='\0'))
+				while((i<N)&&(s[i] != '\0'))
 				{
 					if(s[i] == '[')
 					{
