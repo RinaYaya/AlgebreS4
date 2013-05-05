@@ -18,7 +18,7 @@ char s3[50];
 char Temp[50];
 Matrice	TabMat[10];
 Nombre TabNombre[10];
-int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0;
+int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 
 	while(iQuit == 0)
 	{	
@@ -59,17 +59,23 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0;
 					if(s[i] == '[')
 					{
 						printf(" 		Entrer [ \n");
+						ouvert=1;
 						iCptL++;
 					}
 					
-					if((s[i]>='0')&&(s[i]<='9'))
+					if(s[i]== ']')
+					{
+						ouvert =0;
+					}
+					
+					if(((s[i]>='0')&&(s[i]<='9'))&&(ouvert==1))
 					{
 						printf(" 	Entrer dans 0-9 \n");
 						Temp[iT]=s[i];
 						iT++;
 					}
 					
-					if((s[i] == ',')||(s[i]== ']'))
+					if((s[i] == ',')&&(ouvert == 1)
 					{
 						printf(" 	Entrer dans , ] \n");
 						Temp[iT]='\0';
