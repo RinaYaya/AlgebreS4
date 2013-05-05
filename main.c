@@ -131,7 +131,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 			else
 				if(strcmp(s2,"mult")==0)
 				{
-					i=0
+					i=0;
 					imult=0;
 					imult2=0;
 					while((i<N)&&(s[i] != '\0'))
