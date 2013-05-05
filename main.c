@@ -50,22 +50,28 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0;
 		
 				while((i<N)&&(s[i] != '\0'))
 				{
-					while( (i<N)&&(s[i] != ':')) i++;
+					while( (i<N)&&(s[i] != ':'))
+					{
+						printf("%c ",s[i]);
+						i++;
+					}
 					
 					if(s[i] == '[')
 					{
+						printf(" 		Entrer [ \n");
 						iCptL++;
 					}
 					
 					if((s[i]>='0')&&(s[i]<='9'))
 					{
+						printf(" 	Entrer dans 0-9 \n");
 						Temp[iT]=s[i];
 						iT++;
 					}
 					
 					if((s[i] == ',')||(s[i]== ']'))
 					{
-						
+						printf(" 	Entrer dans , ] \n");
 						Temp[iT]='\0';
 						printf(" AJOUT %f \n",atof(Temp));
 						setElt(TabMat[iMat]->matrice, iCptL-1,iCptC, atof(Temp));
