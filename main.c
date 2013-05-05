@@ -112,16 +112,17 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0;
 					}
 					i++;
 				}
-				iMat++;
 				for(iCptL=0; iCptL <Ligne; iCptL++)
 				{
 					for(iCptC=0; iCptC<Col; iCptC++)
 					{
-						printf("m[ %d ][ %d ] = %f",iCptL,iCptC,getElt(TabMat[iMat-1]->matrice, iCptL, iCptC));
+						printf("m[ %d ][ %d ] = %f",iCptL,iCptC,getElt(TabMat[iMat]->matrice, iCptL, iCptC));
 					}
 					
 					printf("\n");
 				}
+				iMat++;
+
 			}
 			else
 				if(strcmp(s2,"mult")==0)
