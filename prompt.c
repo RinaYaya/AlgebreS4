@@ -109,7 +109,7 @@ Matrice NewMatrice(char* nom, int L, int C)
 	Matrice a = malloc(sizeof(StrMatrice));
 	int rows=L,i=0, col=C;
 	
-
+	printf("OH %d OH %d \n",L,C);
 	if(a == NULL)
 	{
 		printf("Probleme MALLOC: NewNombre");
