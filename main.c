@@ -176,25 +176,6 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 						i++;
 					}
 					
-					//~ printf("\n m1 a %d ligne et %d col  \n m2 a %d ligne et %d col  \n ",m1->nrows, m1->ncols,m2->nrows, m2->ncols);
-					
-					//~ for(iCptL=1;iCptL<= m1->nrows; iCptL++)
-					//~ {
-						//~ for(iCptC=1; iCptC <= m1->ncols; iCptC++)
-						//~ {
-							//~ printf("%f ",getElt(m1,iCptL,iCptC));
-						//~ }
-						//~ printf("\n");
-					//~ }
-					//~ 
-					//~ for(iCptL=1;iCptL<= m2->nrows; iCptL++)
-					//~ {
-						//~ for(iCptC=1; iCptC <= m2->ncols; iCptC++)
-						//~ {
-							//~ printf("%f ",getElt(m2,iCptL,iCptC));
-						//~ }
-						//~ printf("\n");
-					//~ }
 					TabMat[iMat]=NewMatrice(s1,m1->nrows,m2->ncols);
 					m3=multiplication(m1,m2);
 					
@@ -206,9 +187,8 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 						}
 						printf("\n");
 					}
-					
-					
-					
+					TabMat[iMat]->matrice=m3;
+					iMat++;
 				}
 				else
 					if(strcmp(s2,"invert")==0)
@@ -243,16 +223,89 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 										speedTest("add", 5, 50, 5,3);
 									}
 									else
-										if((s2[0] >= '0')&&(s2[0] <= '9'))
+										if(strcmp(s2,"add")==0)
 										{
-											TabNombre[iVar]=NewNombre(s1,atof(s2));
-											printf(" %s = %f \n",TabNombre[iVar]->variable,TabNombre[iVar]->valeur);
-											iVar++;
+											i=0;
+											imult=0;
+											imult2=0;
+											
+											while((i<N)&&(s[i] != '('))
+											{
+												i++;
+											}
+												
+											while((i<N)&&(s[i] != ','))
+											{
+												if((s[i] != ',')&&(s[i] != ' ')&&(s[i] != '('))
+												{
+													tmp1[0][imult2]=s[i];
+													imult2++;
+												}
+												i++;
+											}
+											tmp1[0][imult2]='\0';
+											imult2=0;
+											while((i<N)&&(s[i] != ')'))
+											{
+												if((s[i] != ',')&&(s[i] != ' ')&&(s[i] != '('))
+												{
+													tmp1[1][imult2]=s[i];
+													imult2++;
+												}
+												i++;
+											}
+											tmp1[1][imult2]='\0';
+											
+											printf("%s + %s \n",tmp1[0],tmp1[1] );
+											i=0;
+					
+											while(i<iMat)
+											{
+												if(strcmp(TabMat[i]->nom,tmp1[0])==0)
+												{
+													printf("\n Matrice : %s chargée \n",tmp1[0]);
+													m1=TabMat[i]->matrice;
+												}
+												
+												if(strcmp(TabMat[i]->nom,tmp1[1])==0)
+												{
+													printf("Matrice : %s chargée \n",tmp1[1]);
+													m2=TabMat[i]->matrice;
+												}
+												i++;
+											}
+											if((m1->nrows == m2->nrows)&&(m1->ncols == m2->ncols))
+											{
+												TabMat[iMat]=NewMatrice(s1,m1->nrows,m2->ncols);
+												m3=addition(m1,m2);
+												
+												for(iCptL=1;iCptL<= m3->nrows; iCptL++)
+												{
+													for(iCptC=1; iCptC <= m3->ncols; iCptC++)
+													{
+														printf("%f ",getElt(m3,iCptL,iCptC));
+													}
+													printf("\n");
+												}
+												TabMat[iMat]->matrice=m3;
+												iMat++;
+											}
+											else
+											{
+												printf(" Addition: Matrice pas de meme type \n\n");
+											}
 										}
 										else
-										{
-											printf("%s : function not implemented \n",s2);
-										}
+											if((s2[0] >= '0')&&(s2[0] <= '9'))
+											{
+												TabNombre[iVar]=NewNombre(s1,atof(s2));
+												printf(" %s = %f \n",TabNombre[iVar]->variable,TabNombre[iVar]->valeur);
+												iVar++;
+											}
+											else
+											{
+												printf("%s : function not implemented \n",s2);
+											}
 		}
 	}
   return 0;
