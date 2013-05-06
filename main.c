@@ -31,17 +31,17 @@ int main ()
 		//~ printf("\n");
 	//~ }
 	//~ 
-arguments a;
 int iQuit =0;
 char s[50];
 char s2[50];
 char s1[50];
-char s3[50];
+
 char Temp[50], tmp1[1][50];
 Matrice	TabMat[10];
 Nombre TabNombre[10];
 Matrix m1, m2,m3;
-int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0, imult2=0, i1=0, i2=0;
+int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0, imult2=0;
+float ftmp;
 
 	while(iQuit == 0)
 	{	
@@ -85,7 +85,7 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 					}
 					
 
-					if(((s[i]>='0')&&(s[i]<='9')))
+					if(((s[i]>='0')&&(s[i]<='9'))||(s[i] == '-'))
 					{
 						Temp[iT]=s[i];
 						iT++;
@@ -196,9 +196,44 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 						printf(" inverse \n");
 					}
 					else
-						if(strcmp(s2,"determinant")==0)
+						if(strcmp(s2,"det")==0)
 						{
-							printf(" Det \n");
+							i=0;
+							imult=0;
+							imult2=0;
+					
+							while((i<N)&&(s[i] != '('))
+							{
+								i++;
+							}
+								
+							while((i<N)&&(s[i] != ')'))
+							{
+								if((s[i] != ',')&&(s[i] != ' ')&&(s[i] != '('))
+								{
+									tmp1[0][imult2]=s[i];
+									imult2++;
+								}
+								i++;
+							}
+							tmp1[0][imult2]='\0';
+							
+							printf("Matrice %s chargé",tmp1[0]);
+							
+							while(i<iMat)
+							{
+								if(strcmp(TabMat[i]->nom,tmp1[0])==0)
+								{
+									printf("\n Matrice : %s chargée \n",tmp1[0]);
+									m1=TabMat[i]->matrice;
+								}
+							}
+							//~ ftmp= determinant_opt(m1);
+							//~ printf(" %s = %f \n",s1,ftmp);
+							//~ TabNombre[iVar]=NewNombre(s1,ftmp);
+							//~ iVar++;
+							
+							
 						}
 						else
 							if(strcmp(s2,"solve")==0)
@@ -296,16 +331,128 @@ int iVar=0, iMat=0, Ligne=0, Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0
 											}
 										}
 										else
-											if((s2[0] >= '0')&&(s2[0] <= '9'))
+											if(strcmp(s2,"sub")==0)
 											{
-												TabNombre[iVar]=NewNombre(s1,atof(s2));
-												printf(" %s = %f \n",TabNombre[iVar]->variable,TabNombre[iVar]->valeur);
-												iVar++;
+												i=0;
+												imult=0;
+												imult2=0;
+												
+												while((i<N)&&(s[i] != '('))
+												{
+													i++;
+												}
+													
+												while((i<N)&&(s[i] != ','))
+												{
+													if((s[i] != ',')&&(s[i] != ' ')&&(s[i] != '('))
+													{
+														tmp1[0][imult2]=s[i];
+														imult2++;
+													}
+													i++;
+												}
+												tmp1[0][imult2]='\0';
+												imult2=0;
+												while((i<N)&&(s[i] != ')'))
+												{
+													if((s[i] != ',')&&(s[i] != ' ')&&(s[i] != '('))
+													{
+														tmp1[1][imult2]=s[i];
+														imult2++;
+													}
+													i++;
+												}
+												tmp1[1][imult2]='\0';
+												
+												printf("%s + %s \n",tmp1[0],tmp1[1] );
+												i=0;
+						
+												while(i<iMat)
+												{
+													if(strcmp(TabMat[i]->nom,tmp1[0])==0)
+													{
+														printf("\n Matrice : %s chargée \n",tmp1[0]);
+														m1=TabMat[i]->matrice;
+													}
+													
+													if(strcmp(TabMat[i]->nom,tmp1[1])==0)
+													{
+														printf("Matrice : %s chargée \n",tmp1[1]);
+														m2=TabMat[i]->matrice;
+													}
+													i++;
+												}
+												if((m1->nrows == m2->nrows)&&(m1->ncols == m2->ncols))
+												{
+													TabMat[iMat]=NewMatrice(s1,m1->nrows,m2->ncols);
+													m3=soustraction(m1,m2);
+													
+													for(iCptL=1;iCptL<= m3->nrows; iCptL++)
+													{
+														for(iCptC=1; iCptC <= m3->ncols; iCptC++)
+														{
+															printf("%f ",getElt(m3,iCptL,iCptC));
+														}
+														printf("\n");
+													}
+													TabMat[iMat]->matrice=m3;
+													iMat++;
+												}
+												else
+												{
+													printf(" Soustraction: Matrice pas de meme type \n\n");
+												}
 											}
 											else
-											{
-												printf("%s : function not implemented \n",s2);
-											}
+												if(strcmp(s2,"trans")==0)
+												{
+													i=0;
+													imult=0;
+													imult2=0;
+											
+													while((i<N)&&(s[i] != '('))
+													{
+														i++;
+													}
+														
+													while((i<N)&&(s[i] != ')'))
+													{
+														if((s[i] != ',')&&(s[i] != ' ')&&(s[i] != '('))
+														{
+															tmp1[0][imult2]=s[i];
+															imult2++;
+														}
+														i++;
+													}
+													tmp1[0][imult2]='\0';
+													
+													printf("Matrice %s chargé",tmp1[0]);
+													
+													while(i<iMat)
+													{
+														if(strcmp(TabMat[i]->nom,tmp1[0])==0)
+														{
+															printf("\n Matrice : %s chargée \n",tmp1[0]);
+															m1=TabMat[i]->matrice;
+														}
+													}
+													
+													m3=transpose(m1);
+													TabMat[iMat]=NewMatrice(s1,m3->nrows,m3->ncols);
+													TabMat[iMat]->matrice=m3;
+													iMat++;
+												}
+												else
+													if(((s2[0] >= '0')&&(s2[0] <= '9'))||(s[i] == '-'))
+													{
+														TabNombre[iVar]=NewNombre(s1,atof(s2));
+														printf(" %s = %f \n",TabNombre[iVar]->variable,TabNombre[iVar]->valeur);
+														iVar++;
+													}
+													else
+													{
+														printf("%s : function not implemented \n",s2);
+													}
 		}
 	}
   return 0;
