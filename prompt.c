@@ -169,31 +169,42 @@ int NbColonne(char chaine[])
 
 arguments chargeArguments(char* arg)
 {
-	int i=0;
+	int k,j=0,i=0;
 	arguments a=malloc(sizeof(StrArguments));
 	a->taille=6;
 	a->nbArg=0;
-	a->tab=malloc(a->taille*sizeof(char*));
-	char* Arg=malloc(50*sizeof(char));
 	
+	//initialisation tableau
+	a->tab=malloc(a->taille*sizeof(char*));
+	for(i=0;i<a->taille;i++)
+	{
+		a->tab[i]=malloc(1024*sizeof(char));
+	}
+
+	i=0;
 	while(arg[i]!='\0')
 	{
-		while(arg[i]!=' ')
+		j=0;
+		while(isspace(arg[i])==0 && arg[i]!='\0')
 		{
-			Arg[i]=arg[i];
+			a->tab[a->nbArg][j]=arg[i];
 			i++;
+			j++;
+			
 		}
-		if(a->nbArg+1>a->taille)
+		
+		if((a->nbArg)+1>a->taille)
 		{
 			a->taille=a->taille*2;
 			a->tab=realloc(a->tab,a->taille*sizeof(char*));
 		}
-		a->tab[a->nbArg]=Arg;
+
 		a->nbArg++;
-		while(arg[i]==' ')
-		 {
+		
+		while(isspace(arg[i])!=0)
+		{
 			 i++;
-		 }
+		}
 	}
 	return a;
 }

@@ -88,6 +88,8 @@ int commande(char* cmd,Matrix a, Matrix b)
 	return temps;
 }
 
+//---------------------------------------------------------------------------------------------------------
+
 
 void speedTest(char* cmd,int tailleMin,int tailleMax,int pas, int nbSec) {
 	int i;

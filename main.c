@@ -36,6 +36,8 @@ char s[50];
 char s2[50];
 char s1[50];
 
+arguments a=NULL;
+
 char Temp[50], tmp1[1][50];
 Matrice	TabMat[10];
 Nombre TabNombre[10];
@@ -246,16 +248,17 @@ float ftmp;
 									printf(" rang \n");
 								}
 								else
-									if(strcmp(s2,"speedtest")==0)
+									if(strncmp(s2,"speedtest ",9)==0)
 									{
+										printf("s2: %s\n",s2);
 										printf(" SP \n");
 										//speedTest
-										//~ a=chargeArguments(s);
-										//~ for(i=0;i<a->nbArg;i++)
-										//~ {
-											//~ printf("%s \n",a->tab[i]);
-										//~ }
-										speedTest("add", 5, 50, 5,3);
+										a=chargeArguments(s2);
+										for(i=0;i<a->nbArg;i++)
+										{
+											printf("%s \n",a->tab[i]);
+										}
+										//~ speedTest("add", 5, 50, 5,3);
 									}
 									else
 										if(strcmp(s2,"add")==0)
