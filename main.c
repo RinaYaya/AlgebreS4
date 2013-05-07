@@ -89,7 +89,7 @@ float ftmp;
 	else
 	{
 		ifichier=compterLigne(argv[1]);
-		fa=fopen(argv[1]);,"r");
+		fa=fopen(argv[1],"r");
 		assert(fa!=NULL);
 	}
 
