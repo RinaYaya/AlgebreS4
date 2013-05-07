@@ -105,6 +105,7 @@ float ftmp;
 			ic++;
 		}
 		s[ic]='\0';
+		r='a';
 		printf("%s",s);
 		i=0;
 		imult=0;
