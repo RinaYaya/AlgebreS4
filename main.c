@@ -229,11 +229,12 @@ float ftmp;
 									printf("\n Matrice : %s chargée \n",tmp1[0]);
 									m1=TabMat[i]->matrice;
 								}
+								i++;
 							}
-							//~ ftmp= determinant_opt(m1);
-							//~ printf(" %s = %f \n",s1,ftmp);
-							//~ TabNombre[iVar]=NewNombre(s1,ftmp);
-							//~ iVar++;
+							ftmp= determinant_opt(m1);
+							printf(" %s = %f \n",s1,ftmp);
+							TabNombre[iVar]=NewNombre(s1,ftmp);
+							iVar++;
 							
 							
 						}
@@ -429,21 +430,33 @@ float ftmp;
 													}
 													tmp1[0][imult2]='\0';
 													
-													printf("Matrice |%s| chargé \n",tmp1[0]);
-													
+													printf("Matrice |%s| chargé %d \n",tmp1[0],iMat);
+													i=0;
 													while(i<iMat)
 													{
+														printf(" i : %d \n",i);
 														if(strcmp(TabMat[i]->nom,tmp1[0])==0)
 														{
-															printf("\n Matrice : |%s| chargée \n",TabMat[i]->nom);
+															printf("\n Matrice : |%s| chargée O \n",TabMat[i]->nom);
 															m1=TabMat[i]->matrice;
 														}
+														i++;
 													}
 													
 													
 													TabMat[iMat]=NewMatrice(s1,0,0);
 													TabMat[iMat]->matrice=transpose(m1);
 													iMat++;
+													m3=transpose(m1);
+													
+													for(iCptL=1;iCptL<= m3->nrows; iCptL++)
+													{
+														for(iCptC=1; iCptC <= m3->ncols; iCptC++)
+														{
+															printf("%f ",getElt(m3,iCptL,iCptC));
+														}
+														printf("\n");
+													}
 												}
 												else
 													if(((s2[0] >= '0')&&(s2[0] <= '9'))||(s[i] == '-'))
