@@ -638,8 +638,16 @@ float ftmp;
 																		{
 																			for(iCptC=1; iCptC<=m2->ncols; iCptC++)
 																			{
-																				setElt(m2,iCptL,iCptC,1);
-																				printf("%f ",getElt(m2,iCptL,iCptC));
+																				if(iCptC == iCptL)
+																				{
+																					setElt(m2,iCptL,iCptC,1);
+																					printf("%f ",getElt(m2,iCptL,iCptC));
+																				}
+																				else
+																				{
+																					setElt(m2,iCptL,iCptC,0);
+																					printf("%f ",getElt(m2,iCptL,iCptC));
+																				}
 																			}
 																			printf("\n");
 																		}
