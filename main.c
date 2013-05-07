@@ -714,6 +714,7 @@ float ftmp;
 																iMat++; 
 														}
 														else
+														{
 															if(strcmp(s2,"scal")==0)
 															{
 																i=0;
@@ -782,7 +783,7 @@ float ftmp;
 															{
 																printf("%s : function not implemented \n",s2);
 															}
-		}
+														}
 	}
 	
 	fclose(fa);
