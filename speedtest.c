@@ -1,7 +1,7 @@
 #include <math.h>
 #include <sys/time.h>
 #include "resol.h"
-
+#include
 /**
  * \fn void ecritureFichier(int n, double t, char *foutput)
  * \brief écrit dans le fichier foutput les lignes "n t"
