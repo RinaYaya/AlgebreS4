@@ -259,7 +259,23 @@ float ftmp;
 										{
 											printf("%s \n",a->tab[i]);
 										}
-										//~ speedTest("add", 5, 50, 5,3);
+										if(a->nbArg<5 && a->nbArg>6)
+										{
+											printf("usage : speedtest commande taille_min taille_max pas [nb_sec]\n");
+											break;
+										}
+										else
+										{
+											
+											if(a->nbArg==5)
+											{
+												speedTest(a->tab[1], atoi(a->tab[2]), atoi(a->tab[3], atoi(a->tab[4]),1);
+											}
+											else
+											{
+												speedTest(a->tab[1], atoi(a->tab[2]), atoi(a->tab[3], atoi(a->tab[4]),atoi(a->tab[5]));
+											}
+										}
 									}
 									else
 										if(strcmp(s2,"add")==0)
