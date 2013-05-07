@@ -109,8 +109,7 @@ float ftmp;
 			}
 			else
 			{
-				printf("Execution : \n %s \n",s);
-			}
+				}
 		}
 		
 		Argument(s,s2,0);
@@ -780,9 +779,6 @@ float ftmp;
 																}
 																iMat++;
 																
-															}
-															if(((s2[0] >= '0')&&(s2[0] <= '9'))||(s[i] == '-'))
-															{
 															}
 															else
 															{
