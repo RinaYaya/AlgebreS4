@@ -107,7 +107,7 @@ Nombre NewNombre(char* nom, float a)
 Matrice NewMatrice(char* nom, int L, int C)
 {
 	Matrice a = malloc(sizeof(StrMatrice));
-	int rows=L,i=0, col=C;
+	int rows=L, col=C;
 	
 	printf("OH %d OH %d \n",L,C);
 	if(a == NULL)
@@ -169,7 +169,7 @@ int NbColonne(char chaine[])
 
 arguments chargeArguments(char* arg)
 {
-	int k,j=0,i=0;
+	int j=0,i=0;
 	arguments a=malloc(sizeof(StrArguments));
 	a->taille=6;
 	a->nbArg=0;

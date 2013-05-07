@@ -429,20 +429,20 @@ float ftmp;
 													}
 													tmp1[0][imult2]='\0';
 													
-													printf("Matrice %s chargé",tmp1[0]);
+													printf("Matrice |%s| chargé \n",tmp1[0]);
 													
 													while(i<iMat)
 													{
 														if(strcmp(TabMat[i]->nom,tmp1[0])==0)
 														{
-															printf("\n Matrice : %s chargée \n",tmp1[0]);
+															printf("\n Matrice : |%s| chargée \n",TabMat[i]->nom);
 															m1=TabMat[i]->matrice;
 														}
 													}
 													
-													m3=transpose(m1);
-													TabMat[iMat]=NewMatrice(s1,m3->nrows,m3->ncols);
-													TabMat[iMat]->matrice=m3;
+													
+													TabMat[iMat]=NewMatrice(s1,0,0);
+													TabMat[iMat]->matrice=transpose(m1);
 													iMat++;
 												}
 												else
