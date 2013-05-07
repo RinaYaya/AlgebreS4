@@ -117,7 +117,7 @@ float ftmp;
 		Argument(s,s2,0);
 		Argument(s,s1,1);
 		
-		if(strcmp(s1,"charger")
+		if(strcmp(s1,"charger")==0)
 		{
 			printf("chargement du fichier \n");
 			charger == 1;
