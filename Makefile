@@ -1,7 +1,7 @@
 CFLAGS = -g -Wall
 LIB = -lm
 main : main.o prompt.o operations.o matrix.o resol.o speedtest.o
-	gcc $(CFLAGS) -o main main.o prompt.o operations.o matrix.o resol.o speedtest.o $(LIB)
+	gcc $(CFLAGS) -o main main.o prompt.o operations.o matrix.o resol.o speedtest.o  $(LIB)
 	
 main.o : main.c prompt.h
 	gcc $(CFLAGS) -c main.c 

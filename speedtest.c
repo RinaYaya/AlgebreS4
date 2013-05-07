@@ -1,7 +1,16 @@
 #include <math.h>
 #include <sys/time.h>
 #include "resol.h"
-
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include "matrix.h"
+#include "operations.h"
+#include <string.h>
+#include <ctype.h>
+#include "prompt.h"
+#define MIN 0
+#define MAX 50
 /**
  * \fn void ecritureFichier(int n, double t, char *foutput)
  * \brief écrit dans le fichier foutput les lignes "n t"
@@ -116,4 +125,40 @@ void speedTest(char* cmd,int tailleMin,int tailleMax,int pas, int nbSec) {
 	deleteMatrix(b);
 	
 	fichierCmde("speedTest.data");
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+void mainSpeedtest(char* s)
+{
+	arguments a;
+	int i;
+	a=chargeArguments(s);
+	//~ for(i=0;i<a->nbArg;i++)
+	//~ {
+		//~ printf("%s \n",a->tab[i]);
+	//~ }
+	i=0;
+	while(strcmp("speedtest",a->tab[i])!=0)
+	{
+		i++;
+		printf("%d\n",i);
+	}
+	if(a->nbArg-i<5 && a->nbArg-i>6)
+	{
+			printf("usage : speedtest commande taille_min taille_max pas [nb_sec]\n");
+			exit(0);
+	}
+	else
+	{
+	
+		if(a->nbArg-i==5)
+		{
+				speedTest(a->tab[i+1], atoi(a->tab[i+2]), atoi(a->tab[i+3]), atoi(a->tab[i+4]),1);
+		}
+		else
+		{
+				speedTest(a->tab[i+1], atoi(a->tab[i+2]), atoi(a->tab[i+3]), atoi(a->tab[i+4]),atoi(a->tab[i+5]));
+		}
+	}
 }

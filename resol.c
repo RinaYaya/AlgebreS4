@@ -177,3 +177,89 @@ void gauss(Matrix A, float *B, float *X) {
 	triangulaire(A, B);
 	remontee(A, B, X);
 }
+
+//-------------------- Pour inversion-------------------------------
+
+
+Matrix permut(Matrix A,int i, int j){
+	int k;
+	float tmp;
+	for(k=0;k<A->nrows;k++)
+	{
+		tmp=getElt(A,i,k);
+		setElt(A,getElt(A,j,k),i,k);
+		setElt(A, tmp,j,k);
+	}
+	return A;
+}
+
+//---------------------------------------------------------------------
+
+//----------------------------------------------------------------------
+
+//additionne à la ligne i le résultat de la multiplication de le ligne j par un facteur k
+Matrix addEtmultipleK(Matrix a,int i,int j,float k){
+	int x;
+	float y;
+	for(x=0;x<a->nrows;x++)//pour chaque élément a->m[i][x] de la ligne i
+	{
+		y=getElt(a,i,x)+k*getElt(a,j,x);//on l'aditionne par k*l'élement a->m[j][x]
+		setElt(a,y,i,x);
+	}
+	return a;
+}
+//---------------------------------------------------------------------
+
+Matrix inversion(Matrix a)
+{
+	Matrix b=newMatrix(a->nrows,a->ncols);
+	b=identite(b,a->nrows,a->ncols);
+	int i,j;
+	float x;
+	
+	//triangulaire pour a ET b
+	for(i=1;i<a->nrows;i++)
+	{
+		j=choixPivot(a,i);
+		permut(a,i,j);
+		printf("permutation a ok\n");
+		permut(b,i,j);
+		printf("permutation b ok\n");
+		
+		for(j=i+1;j<a->nrows;j++)
+		{
+			x=-(getElt(a,j,i))/getElt(a,i,i);
+			addEtmultipleK(a,j,i,x);
+			addEtmultipleK(b,j,i,x);
+		}
+	}
+	return b;
+}
+
+void displaymatrix(Matrix m){
+	int i,j;
+	
+	for(i=0;i<m->nrows;i++)
+	{
+		for(j=0;j<m->ncols;j++)
+		{
+			printf("%f ",getElt(m,i,j));
+		}
+		printf("\n");
+	}
+}
+
+void mainInverstion(char* s)
+{
+	printf("Matrice a:\n");
+	Matrix a=aleatoire(a,3,3,1,10);
+	displaymatrix(a);
+	printf("Matrice b:\n");
+	Matrix b=aleatoire(b,3,3,1,10);
+	displaymatrix(b);
+	printf("Inversion:\n");
+	b=inversion(a);
+	printf("COuouc\n");
+	displaymatrix(b);
+	
+}

@@ -1,9 +1,6 @@
 #ifndef __MATRIX_H__
 #define __MATRIX_H__
-#include <stdio.h>
-#include <stdlib.h>
-#define MIN 0
-#define MAX 20
+
 typedef struct matrix {
 	float *mat;
 	int nrows, ncols;

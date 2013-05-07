@@ -109,7 +109,6 @@ Matrice NewMatrice(char* nom, int L, int C)
 	Matrice a = malloc(sizeof(StrMatrice));
 	int rows=L, col=C;
 	
-	printf("OH %d OH %d \n",L,C);
 	if(a == NULL)
 	{
 		printf("Probleme MALLOC: NewNombre");
@@ -187,6 +186,8 @@ arguments chargeArguments(char* arg)
 		j=0;
 		while(isspace(arg[i])==0 && arg[i]!='\0')
 		{
+			printf("nbarg %d, i:%d , j: %d\n",a->nbArg,i,j);
+			printf(" arg[i] %s\n",arg[i]);
 			a->tab[a->nbArg][j]=arg[i];
 			i++;
 			j++;
