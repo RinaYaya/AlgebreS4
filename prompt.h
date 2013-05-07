@@ -14,6 +14,7 @@
 #include "resol.h"
 #include <string.h>
 #include <ctype.h>
+#include <assert.h>
 //-----------------------------Structure--------------------------------
 typedef struct {char *variable; float valeur; } StrNombre, *Nombre;
 typedef struct {char *nom; Matrix matrice;} StrMatrice, *Matrice;
