@@ -1,5 +1,33 @@
 #include "prompt.h"
 #define N 50
+/**
+ * \fn int compterLigne(char*name)
+ * \brief compte les Lignes d'un fichier
+ * \param name nom du fichier
+ * \return int nombre de ligne
+ *  \pre 
+ */
+int compterLigne(char*name)
+{
+	//ouverture du fichier
+	FILE* f=NULL;
+	
+	int p,i=0;
+	char a[3];
+	char c[3];
+	
+	
+	f=fopen(name,"r");
+	assert(f!=NULL);
+	
+	while(fscanf(f,"%s %d %s",a,&p,c)!=EOF)
+	{
+		i++;
+	}
+	fclose(f);
+	
+	return i;
+}
 //----------------------------------------------------------------------
 /**
  * \fn void LireChaine(char chaine[], int size) 

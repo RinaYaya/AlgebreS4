@@ -66,30 +66,61 @@ int main ()
 	//~ deleteMatrix(temp);
 	//~ free(X);
 	//~ free(B);
-
+	FILE* fa=NULL;
 int iQuit =0;
-char s[50];
+char s[400];
 char s2[50];
 char s1[50];
 
 arguments a=NULL;
 
-char Temp[50], tmp1[1][50];
+char Temp[50], tmp1[1][50], tmc[400];
 Matrice	TabMat[10];
 Nombre TabNombre[10];
 Matrix m1, m2,m3;
-int iVar=0, iMat=0, Ligne=0, n,Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0, imult2=0, itmp=0;
+int iVar=0, iMat=0, Ligne=0, n,Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0, imult2=0, itmp=0, ifichier=0;
 float ftmp;
+
+	if(argc!=2)
+	{
+		printf("\n");
+	}
+	else
+	{
+		ifichier=compterLigne(argv[1]);
+		fa=fopen(name,"r");
+		assert(fa!=NULL);
+	}
 
 	while(iQuit == 0)
 	{	
 	
+	
 		printf("> ");
-		LireChaine(s);
+		if(charger == 0)
+		{
+			LireChaine(s);
+		}
+		else
+		{
+			if(fgets(s,400,fa)==NULL)
+			{
+				charger ==0;
+			}
+			else
+			{
+				printf("Execution : \n %s \n",s);
+			}
+		}
+		
 		Argument(s,s2,0);
 		Argument(s,s1,1);
 		
-		
+		if(strcmp(s1,"charger")
+		{
+			printf("chargement du fichier \n");
+			charger == 1;
+		}
 		if(strcmp(s1,"quit") ==0)
 		{
 			iQuit=1;
@@ -759,6 +790,7 @@ float ftmp;
 															}
 		}
 	}
+	fclose(name);
   return 0;
 }
 //----------------------------------------------------------------------

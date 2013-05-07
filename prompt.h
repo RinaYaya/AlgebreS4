@@ -29,4 +29,5 @@ Matrix getMatrice(Matrice m);
 int NbLigne(char chaine[]);
 int NbColonne(char chaine[]);
 arguments chargeArguments(char* arg);
+int compterLigne(char*name);
 #endif
