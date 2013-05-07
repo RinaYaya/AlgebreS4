@@ -99,7 +99,7 @@ float ftmp;
 	{
 		ic=0;
 		r='a';
-		while(r !='\n')
+		while((r !='\n')&&(r!=EOF))
 		{
 			r=fgetc(fa);
 			s[ic]=r;
