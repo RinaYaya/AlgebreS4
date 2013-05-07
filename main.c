@@ -7,100 +7,98 @@
 #include <unistd.h>
 #include <time.h>
 
+#include <assert.h>
+
 #define N 50
 //----------------------------------------------------------------------
-int main ()
+int main(int argc, char* argv[])
 {
+	//declaration et Init
+	srand(time(NULL));
+	FILE* fa=NULL;
+	int iQuit =0;
+	char s[400];
+	char s2[50];
+	char s1[50];
+
+	arguments a=NULL;
+
+	char Temp[50], tmp1[1][50], tmc[400],r='a';
+	Matrice	TabMat[10];
+	Nombre TabNombre[10];
+	Matrix m1, m2,m3;
+	int iVar=0, iMat=0, Ligne=0, n,Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0, imult2=0, itmp=0, ifichier=0, charger =0,ic=0;
+	float ftmp;
+
+
+	// je verifie si j'ai un fichier en argument si oui je l'ouvre
+		
+	if(argc!=2)
+	{
+		printf("\n");
+	}
+	else
+	{
+		ifichier=compterLigne(argv[1]);
+		fa=fopen(argv[1],"r");
+		assert(fa!=NULL);
+	}
 	
-	//~ Matrix m = newMatrix(3,3);
-	//~ int i=0,j=0;
-	//~ float k=1.0;
-	//~ 
-	//~ for(i=1; i<3+1; i++)
-	//~ {
-		//~ for(j=1; j<3+1; j++)
-		//~ {
-			//~ setElt(m,i,j,k);
-			//~ printf(" %f ",getElt(m,i,j));
-			//~ k++;
-		//~ }
-		//~ printf("\n");
-	//~ }
-	//~ 
-	//~ 
-	//~ printf(" det %d , %d \n", determinant_naif(m), determinant_opt(m));
-	//~ 
-	//~ for(i=0; i<3; i++)
-	//~ {
-		//~ for(j=0; j<3; j++)
-		//~ {
-			//~ 
-		//~ }
-		//~ printf("\n");
-	//~ }
-		srand(time(NULL));
-	//~ 
-	//~ int min = 1, max = 9, n = 3; // matrice de taille n*n, élements aléatoires de min à max
-	//~ 
-	//~ Matrix A = NULL, temp = NULL;
-	//~ A = aleatoire(A, n, n, min, max); // A
-	//~ temp = copie(A, temp);
-	//~ 
-	//~ float *B = (float*) malloc(n*sizeof(float)); // B
-	//~ float *X = (float*) malloc(n*sizeof(float)); // X
-	//~ int i;
-	//~ for(i = 0; i < n; i++) {
-		//~ B[i] = 0;
-	//~ }
-	//~ 
-	//~ displayMatrix(A, B);
-	//~ 
-	//~ printf("Determinant : %d %d \n", determinant_opt(temp),determinant_naif(temp,n));
-	//~ 
-	//~ gauss(A, B, X);
-	//~ 
-	//~ printf("\nSolutions :\n");
-	//~ for(i = 0; i < n; i++) {
-		//~ printf("x%d = %f\n", i+1, X[i]);
-	//~ }
-	//~ 
-	//~ deleteMatrix(A);
-	//~ deleteMatrix(temp);
-	//~ free(X);
-	//~ free(B);
-
-int iQuit =0;
-char s[50];
-char s2[50];
-char s1[50];
-
-arguments a=NULL;
-
-char Temp[50], tmp1[1][50];
-Matrice	TabMat[10];
-Nombre TabNombre[10];
-Matrix m1, m2,m3;
-int iVar=0, iMat=0, Ligne=0, n,Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0, imult2=0, itmp=0;
-float ftmp;
-
+	//boucle geante qui gere le Prompt :P
 	while(iQuit == 0)
 	{	
 	
+	
 		printf("> ");
-		LireChaine(s);
+		
+		//si charger et à 0 on lit au clavier, sinon on lit dans le fichier
+		if(charger == 0)
+		{
+			LireChaine(s);
+		}
+		else
+		{
+			//si r = EOF on met charger à 0 pour lire au clavier, sinon on lit une ligne du fichier
+			if(r == EOF)
+			{
+				charger =0;
+			}
+			else
+			{
+				ic=0;
+				r='a';
+				//lecture d'une ligne d'un fichier
+				while((r !='\n')&&(r!=EOF))
+				{
+					r=fgetc(fa);
+					s[ic]=r;
+					ic++;
+				}
+				s[ic]='\0';
+				printf(" Execution de : \n %s \n", s);
+			}
+		}
+		//separation du mot avant le ':' et apres
 		Argument(s,s2,0);
 		Argument(s,s1,1);
 		
 		
+		//le switch à l'ancienne :P permet de gere les options
+		if(strcmp(s1,"charger")==0)
+		{
+			//met a 1, pour charger 
+			printf("chargement du fichier \n");
+			charger = 1;
+		}
+		else
 		if(strcmp(s1,"quit") ==0)
 		{
 			iQuit=1;
 		}
 		else
-		{
 			if(strcmp(s2,"matrix")==0)
 			{
-				printf(" Entrer dans matrix \n");
+				//remise à zero des parametre
 				i=0;
 				iT=0;
 				iCptC=0;
@@ -109,28 +107,27 @@ float ftmp;
 				Col=NbColonne(s);
 				Col++;
 				
+				//on ajoute une entré dans le tableau de matrice
 				TabMat[iMat]=NewMatrice(s1,Ligne, Col);
+				
+					//on avance jusque ':' dans la chaine
 					while( (i<N)&&(s[i] != ':'))
 					{
 						i++;
 					}
+					//on saute l'espace et le :
 					i=i+2;
 					
-					
+				//on parcours le reste jusqu'a la fin	
 				while((i<N)&&(s[i] != '\0'))
 				{
-					
-					if(s[i] == '[')
-					{
-					}
-					
-
+					//si c'est un chiffre ou un -on ajoute
 					if(((s[i]>='0')&&(s[i]<='9'))||(s[i] == '-'))
 					{
 						Temp[iT]=s[i];
 						iT++;
 					}
-					
+					//si c'est une , ou ] on ajoute le '\0' pour dire que c'est la fin de la chaine et on l'insere dans la matrice
 					if((s[i] == ',')||(s[i] == ']'))
 					{
 					
@@ -141,6 +138,8 @@ float ftmp;
 						
 					}
 					
+					
+					//on fini une ligne de la matrice
 					if(s[i]== ']')
 					{
 						i++;
@@ -150,11 +149,12 @@ float ftmp;
 					}
 					i++;
 				}
+				
 				for(iCptL=1; iCptL <Ligne+1; iCptL++)
 				{
 					for(iCptC=1; iCptC<Col+1; iCptC++)
 					{
-						printf("m[ %d ][ %d ] = %f",iCptL,iCptC,getElt(TabMat[iMat]->matrice, iCptL, iCptC));
+						printf("[ %d ][ %d ] = %f",iCptL,iCptC,getElt(TabMat[iMat]->matrice, iCptL, iCptC));
 					}
 					
 					printf("\n");
@@ -361,20 +361,11 @@ float ftmp;
 								else
 									if(strncmp(s2,"speedtest ",9)==0)
 									{
-										printf("s: %s\n",s);
-										printf(" SP \n");
-										//speedTest
-										a=chargeArguments(s);
+
 										//~ for(i=0;i<a->nbArg;i++)
 										//~ {
 											//~ printf("%s \n",a->tab[i]);
 										//~ }
-										i=0;
-										while(strcmp("speedtest",a->tab[i])!=0)
-										{
-											i++;
-											printf("%d\n",i);
-										}
 										mainSpeedtest(s);
 									}
 									else
@@ -641,6 +632,7 @@ float ftmp;
 																	iMat++;
 																}
 																else
+																{
 																	if(imult==0)
 																	{
 																		
@@ -693,6 +685,7 @@ float ftmp;
 																}
 																		
 																iMat++; 
+															}
 														}
 														else
 															if(strcmp(s2,"scal")==0)
@@ -732,6 +725,7 @@ float ftmp;
 																
 																ftmp=atof(tmp1[1]);
 																
+																
 																i=0;
 																while(i<iMat)
 																{
@@ -760,11 +754,13 @@ float ftmp;
 																
 															}
 															else
-																{
-																	printf("%s : function not implemented \n",s2);
-																}
-		}
+															{
+																printf("%s : function not implemented \n",s2);
+															}
+														
 	}
+	
+	fclose(fa);
   return 0;
 }
 //----------------------------------------------------------------------

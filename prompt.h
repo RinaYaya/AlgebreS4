@@ -14,6 +14,7 @@
 #include "resol.h"
 #include <string.h>
 #include <ctype.h>
+#include <assert.h>
 //-----------------------------Structure--------------------------------
 typedef struct {char *variable; float valeur; } StrNombre, *Nombre;
 typedef struct {char *nom; Matrix matrice;} StrMatrice, *Matrice;
@@ -29,4 +30,5 @@ Matrix getMatrice(Matrice m);
 int NbLigne(char chaine[]);
 int NbColonne(char chaine[]);
 arguments chargeArguments(char* arg);
+int compterLigne(char*name);
 #endif
