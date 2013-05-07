@@ -76,11 +76,11 @@ char s1[50];
 
 arguments a=NULL;
 
-char Temp[50], tmp1[1][50], tmc[400];
+char Temp[50], tmp1[1][50], tmc[400],r='a';
 Matrice	TabMat[10];
 Nombre TabNombre[10];
 Matrix m1, m2,m3;
-int iVar=0, iMat=0, Ligne=0, n,Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0, imult2=0, itmp=0, ifichier=0, charger =0;
+int iVar=0, iMat=0, Ligne=0, n,Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0, imult2=0, itmp=0, ifichier=0, charger =0,ic=0;
 float ftmp;
 
 	if(argc!=2)
@@ -95,8 +95,15 @@ float ftmp;
 	}
 	
 	
-	while(fgets(s,400,fa)!=NULL)
+	while(r != EOF)
 	{
+		ic=0;
+		while(r !='\n')
+		{
+			r=fgetc(fa);
+			s[ic]=r;
+			ic++;
+		}
 		printf("%s");
 		i=0;
 		imult=0;
@@ -127,7 +134,8 @@ float ftmp;
 						i++;
 					}
 					tmp1[1][imult2]='\0';
-		printf(" D |%s| |%s| \n",tmp1[0],tmp1[1]);
+		printf("|%s| |%s| \n",tmp1[0],tmp1[1]);
+		r=fgetc(fa);
 	}
 	//~ while(iQuit == 0)
 	//~ {	
