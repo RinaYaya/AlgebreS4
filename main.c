@@ -750,10 +750,13 @@ float ftmp;
 																iMat++;
 																
 															}
+															if(((s2[0] >= '0')&&(s2[0] <= '9'))||(s[i] == '-'))
+															{
+															}
 															else
-																{
-																	printf("%s : function not implemented \n",s2);
-																}
+															{
+																printf("%s : function not implemented \n",s2);
+															}
 		}
 	}
   return 0;

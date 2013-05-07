@@ -1,7 +1,8 @@
 #ifndef __MATRIX_H__
 #define __MATRIX_H__
 
-typedef struct matrix {
+typedef struct matrix 
+{
 	float *mat;
 	int nrows, ncols;
 } *Matrix;
