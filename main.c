@@ -104,7 +104,8 @@ float ftmp;
 			s[ic]=r;
 			ic++;
 		}
-		printf("%s");
+		s[ic]='\0';
+		printf("%s",s);
 		i=0;
 		imult=0;
 		imult2=0;
