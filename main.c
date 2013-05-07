@@ -109,34 +109,7 @@ float ftmp;
 		i=0;
 		imult=0;
 		imult2=0;
-						while((i<N)&&(s[i] != '('))
-						{
-							i++;
-						}
-						
-					while((i<N)&&(s[i] != ','))
-					{
-						if((s[i] != ',')&&(s[i] != ' ')&&(s[i] != '('))
-						{
-							tmp1[0][imult2]=s[i];
-							imult2++;
-						}
-						i++;
-					}
-					tmp1[0][imult2]='\0';
-					imult2=0;
-					while((i<N)&&(s[i] != ')'))
-					{
-						if((s[i] != ',')&&(s[i] != ' ')&&(s[i] != '('))
-						{
-							tmp1[1][imult2]=s[i];
-							imult2++;
-						}
-						i++;
-					}
-					tmp1[1][imult2]='\0';
-		printf("|%s| |%s| \n",tmp1[0],tmp1[1]);
-		r=fgetc(fa);
+
 	}
 	//~ while(iQuit == 0)
 	//~ {	
