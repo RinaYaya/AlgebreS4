@@ -127,7 +127,6 @@ float ftmp;
 			iQuit=1;
 		}
 		else
-		{
 			if(strcmp(s2,"matrix")==0)
 			{
 				printf(" Entrer dans matrix \n");
@@ -712,9 +711,9 @@ float ftmp;
 																}
 																		
 																iMat++; 
+															}
 														}
 														else
-														{
 															if(strcmp(s2,"scal")==0)
 															{
 																i=0;
@@ -752,6 +751,7 @@ float ftmp;
 																
 																ftmp=atof(tmp1[1]);
 																
+																
 																i=0;
 																while(i<iMat)
 																{
@@ -783,7 +783,7 @@ float ftmp;
 															{
 																printf("%s : function not implemented \n",s2);
 															}
-														}
+														
 	}
 	
 	fclose(fa);
