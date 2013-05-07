@@ -147,6 +147,9 @@ int main(int argc, char* argv[])
 					i++;
 				}
 				
+				//boucle pour afficher la matrice, c'etait un pur reflexe les boucles imbriqué je me rend compte que vu que la matrice et
+				//continu on aurait pu lire d'un coup avec une boucle :p
+				
 				for(iCptL=1; iCptL <Ligne+1; iCptL++)
 				{
 					for(iCptC=1; iCptC<Col+1; iCptC++)
@@ -162,17 +165,21 @@ int main(int argc, char* argv[])
 			else
 				if(strcmp(s2,"mult")==0)
 				{
+					//mise a zero des param
 					i=0;
 					imult=0;
 					imult2=0;
 					
+					//on avance jusqu'a (
 						while((i<N)&&(s[i] != '('))
 						{
 							i++;
 						}
 						
+					// on lit jusque ,	
 					while((i<N)&&(s[i] != ','))
 					{
+						//	si on tombe sur , ' ' ou ( on ajoute le caractere
 						if((s[i] != ',')&&(s[i] != ' ')&&(s[i] != '('))
 						{
 							tmp1[0][imult2]=s[i];
