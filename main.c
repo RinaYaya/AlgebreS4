@@ -358,15 +358,15 @@ float ftmp;
 								else
 									if(strncmp(s2,"speedtest ",9)==0)
 									{
-										printf("s2: %s\n",s2);
-										printf(" SP \n");
-										//speedTest
-										a=chargeArguments(s2);
-										for(i=0;i<a->nbArg;i++)
-										{
-											printf("%s \n",a->tab[i]);
-										}
-										speedTest("add", 5, 50, 5,3);
+										//~ printf("s2: %s\n",s2);
+										//~ printf(" SP \n");
+										//~ //speedTest
+										//~ a=chargeArguments(s2);
+										//~ for(i=0;i<a->nbArg;i++)
+										//~ {
+											//~ printf("%s \n",a->tab[i]);
+										//~ }
+										//~ speedTest("add", 5, 50, 5,3);
 									}
 									else
 										if(strcmp(s2,"add")==0)
