@@ -179,10 +179,10 @@ int main(int argc, char* argv[])
 							i++;
 						}
 						
-					// on lit jusque ,	
+					// on lit jusque ,	en gros on recupere l'argument 1
 					while((i<N)&&(s[i] != ','))
 					{
-						//	si on tombe sur , ' ' ou ( on ajoute le caractere
+						//	si on tombe sur , ' ' ou ( on ajoute le caractere 
 						if((s[i] != ',')&&(s[i] != ' ')&&(s[i] != '('))
 						{
 							tmp1[0][imult2]=s[i];
@@ -190,8 +190,12 @@ int main(int argc, char* argv[])
 						}
 						i++;
 					}
+					//on ajoute le carectere pour finir la chaine
 					tmp1[0][imult2]='\0';
 					imult2=0;
+					
+					
+					// on lit jusque )	en gros on recupere l'argument 2
 					while((i<N)&&(s[i] != ')'))
 					{
 						if((s[i] != ',')&&(s[i] != ' ')&&(s[i] != '('))
@@ -201,11 +205,14 @@ int main(int argc, char* argv[])
 						}
 						i++;
 					}
+					//on ajoute le carectere pour finir la chaine
 					tmp1[1][imult2]='\0';
 					
 					printf("%s x %s \n",tmp1[0],tmp1[1] );
 					
 					i=0;
+					
+					//on recherche la matrice dans le tableau de matrice
 					
 					while(i<iMat)
 					{
@@ -223,9 +230,11 @@ int main(int argc, char* argv[])
 						i++;
 					}
 					
+					//on creer une nouvelle entré et on multiplie
 					TabMat[iMat]=NewMatrice(s1,m1->nrows,m2->ncols);
 					m3=multiplication(m1,m2);
 					
+					//on affiche
 					for(iCptL=1;iCptL<= m3->nrows; iCptL++)
 					{
 						for(iCptC=1; iCptC <= m3->ncols; iCptC++)
@@ -766,8 +775,14 @@ int main(int argc, char* argv[])
 															}
 														
 	}
-	
-	fclose(fa);
+	if(argc!=2)
+	{
+		printf("\n");
+	}
+	else
+	{
+		fclose(fa);
+	}
   return 0;
 }
 //----------------------------------------------------------------------
