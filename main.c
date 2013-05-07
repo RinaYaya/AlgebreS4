@@ -106,7 +106,7 @@ float ftmp;
 		{
 			if(fgets(s,400,fa)==NULL)
 			{
-				charger ==0;
+				charger =0;
 			}
 			else
 			{
@@ -120,7 +120,7 @@ float ftmp;
 		if(strcmp(s1,"charger")==0)
 		{
 			printf("chargement du fichier \n");
-			charger == 1;
+			charger = 1;
 		}
 		if(strcmp(s1,"quit") ==0)
 		{
