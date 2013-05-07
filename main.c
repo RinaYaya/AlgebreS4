@@ -150,11 +150,6 @@ float ftmp;
 				while((i<N)&&(s[i] != '\0'))
 				{
 					
-					if(s[i] == '[')
-					{
-					}
-					
-
 					if(((s[i]>='0')&&(s[i]<='9'))||(s[i] == '-'))
 					{
 						Temp[iT]=s[i];
@@ -788,6 +783,7 @@ float ftmp;
 															}
 		}
 	}
+	
 	fclose(argv[1]);
   return 0;
 }
