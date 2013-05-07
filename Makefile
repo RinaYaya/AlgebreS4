@@ -18,8 +18,8 @@ operations.o : operations.c operations.h matrix.h
 resol.o : resol.c resol.h operations.h matrix.h
 	gcc $(CFLAGS) -c resol.c $(LIB)
 	
-speedtest.o: speedtest.c resol.h operations.h matrix.h
-	gcc $(CFLAGS) -c speedtest.c $(LIB)
+#~ speedtest.o: speedtest.c resol.h operations.h matrix.h
+	#~ gcc $(CFLAGS) -c speedtest.c $(LIB)
 	
 archive : 
 	tar -f Oleemahomed_Thierry.tar.gz -cvz *.c *.h *.txt makefile
