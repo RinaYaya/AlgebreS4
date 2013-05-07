@@ -98,6 +98,7 @@ float ftmp;
 	while(r != EOF)
 	{
 		ic=0;
+		r='a';
 		while(r !='\n')
 		{
 			r=fgetc(fa);
@@ -105,7 +106,7 @@ float ftmp;
 			ic++;
 		}
 		s[ic]='\0';
-		r='a';
+		
 		printf("%s",s);
 		i=0;
 		imult=0;
