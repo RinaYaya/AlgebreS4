@@ -7,7 +7,7 @@
 #include <unistd.h>
 #define N 50
 //----------------------------------------------------------------------
-int main ()
+int main(int argc, char* argv[])
 {
 	
 	//~ Matrix m = newMatrix(3,3);
@@ -66,6 +66,7 @@ int main ()
 	//~ deleteMatrix(temp);
 	//~ free(X);
 	//~ free(B);
+	
 	FILE* fa=NULL;
 int iQuit =0;
 char s[400];
@@ -88,7 +89,7 @@ float ftmp;
 	else
 	{
 		ifichier=compterLigne(argv[1]);
-		fa=fopen(name,"r");
+		fa=fopen(argv[1],"r");
 		assert(fa!=NULL);
 	}
 
@@ -97,6 +98,7 @@ float ftmp;
 	
 	
 		printf("> ");
+		
 		if(charger == 0)
 		{
 			LireChaine(s);
