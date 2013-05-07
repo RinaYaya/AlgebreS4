@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "matrix.h"
 
 Matrix newMatrix(int nb_rows, int nb_columns)
