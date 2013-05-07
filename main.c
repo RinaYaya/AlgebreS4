@@ -79,7 +79,7 @@ char Temp[50], tmp1[1][50], tmc[400];
 Matrice	TabMat[10];
 Nombre TabNombre[10];
 Matrix m1, m2,m3;
-int iVar=0, iMat=0, Ligne=0, n,Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0, imult2=0, itmp=0, ifichier=0;
+int iVar=0, iMat=0, Ligne=0, n,Col=0, iCptL=0, iCptC=0, iT=0,i=0,ouvert=0, imult=0, imult2=0, itmp=0, ifichier=0, charger =0;
 float ftmp;
 
 	if(argc!=2)
@@ -89,7 +89,7 @@ float ftmp;
 	else
 	{
 		ifichier=compterLigne(argv[1]);
-		fa=fopen(argv[1],"r");
+		fa=fopen(argv[1]);,"r");
 		assert(fa!=NULL);
 	}
 
@@ -98,7 +98,6 @@ float ftmp;
 	
 	
 		printf("> ");
-		
 		if(charger == 0)
 		{
 			LireChaine(s);
@@ -111,7 +110,8 @@ float ftmp;
 			}
 			else
 			{
-				}
+				printf(" Execution de : \n %s \n", s);
+			}
 		}
 		
 		Argument(s,s2,0);
