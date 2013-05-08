@@ -208,7 +208,6 @@ int main(int argc, char* argv[])
 					//on ajoute le carectere pour finir la chaine
 					tmp1[1][imult2]='\0';
 					
-					printf("%s x %s \n",tmp1[0],tmp1[1] );
 					
 					i=0;
 					
@@ -218,13 +217,11 @@ int main(int argc, char* argv[])
 					{
 						if(strcmp(TabMat[i]->nom,tmp1[0])==0)
 						{
-							printf("\n Matrice : %s chargée \n",tmp1[0]);
 							m1=TabMat[i]->matrice;
 						}
 						
 						if(strcmp(TabMat[i]->nom,tmp1[1])==0)
 						{
-							printf("Matrice : %s chargée \n",tmp1[1]);
 							m2=TabMat[i]->matrice;
 						}
 						i++;
@@ -330,20 +327,17 @@ int main(int argc, char* argv[])
 								}
 								tmp1[1][imult2]='\0';
 								
-								printf("%s x %s \n",tmp1[0],tmp1[1] );
 								i=0;
 					
 								while(i<iMat)
 								{
 									if(strcmp(TabMat[i]->nom,tmp1[0])==0)
 									{
-										printf("\n Matrice : |%s| chargée \n",TabMat[i]->nom);
 										m1=TabMat[i]->matrice;
 									}
 									
 									if(strcmp(TabMat[i]->nom,tmp1[1])==0)
 									{
-										printf("Matrice : |%s| chargée \n",TabMat[i]->nom);
 										m2=TabMat[i]->matrice;
 									}
 									i++;
@@ -418,20 +412,17 @@ int main(int argc, char* argv[])
 											}
 											tmp1[1][imult2]='\0';
 											
-											printf("%s + %s \n",tmp1[0],tmp1[1] );
 											i=0;
 					
 											while(i<iMat)
 											{
 												if(strcmp(TabMat[i]->nom,tmp1[0])==0)
 												{
-													printf("\n Matrice : %s chargée \n",tmp1[0]);
 													m1=TabMat[i]->matrice;
 												}
 												
 												if(strcmp(TabMat[i]->nom,tmp1[1])==0)
 												{
-													printf("Matrice : %s chargée \n",tmp1[1]);
 													m2=TabMat[i]->matrice;
 												}
 												i++;
@@ -491,20 +482,17 @@ int main(int argc, char* argv[])
 												}
 												tmp1[1][imult2]='\0';
 												
-												printf("%s + %s \n",tmp1[0],tmp1[1] );
 												i=0;
 						
 												while(i<iMat)
 												{
 													if(strcmp(TabMat[i]->nom,tmp1[0])==0)
 													{
-														printf("\n Matrice : %s chargée \n",tmp1[0]);
 														m1=TabMat[i]->matrice;
 													}
 													
 													if(strcmp(TabMat[i]->nom,tmp1[1])==0)
 													{
-														printf("Matrice : %s chargée \n",tmp1[1]);
 														m2=TabMat[i]->matrice;
 													}
 													i++;
@@ -553,14 +541,11 @@ int main(int argc, char* argv[])
 													}
 													tmp1[0][imult2]='\0';
 													
-													printf("Matrice |%s| chargé %d \n",tmp1[0],iMat);
 													i=0;
 													while(i<iMat)
 													{
-														printf(" i : %d \n",i);
 														if(strcmp(TabMat[i]->nom,tmp1[0])==0)
 														{
-															printf("\n Matrice : |%s| chargée O \n",TabMat[i]->nom);
 															m1=TabMat[i]->matrice;
 														}
 														i++;
@@ -621,14 +606,12 @@ int main(int argc, char* argv[])
 																}
 																tmp1[1][imult2]='\0';
 																
-																printf("%s x %s \n",tmp1[0],tmp1[1] );
 																
 																i=0;
 																while(i<iMat)
 																{
 																	if(strcmp(TabMat[i]->nom,tmp1[0])==0)
 																	{
-																		printf("\n Matrice : %s chargée \n",tmp1[0]);
 																		m1=TabMat[i]->matrice;
 																	}
 																	i++;
@@ -637,9 +620,7 @@ int main(int argc, char* argv[])
 																imult=atoi(tmp1[1]);
 																
 																m2=copie(m1,m2);
-																printf("ajout pk L %d C %d \n",m2->nrows,m2->ncols);
-																printf("ajout pk L %d C %d \n",m1->nrows,m1->ncols);
-																printf(" copie + atoi %d ok \n", imult );
+																
 																
 																if(imult==1)
 																{
@@ -677,16 +658,13 @@ int main(int argc, char* argv[])
 																	{
 																		for(i=0; i<imult; i++)
 																		{
-																			printf(" i = %d \n",i);
 																			m2=multiplication(m1,m2);
 																			
 																		}
 																		
-																		printf("multi ok \n");
 																		TabMat[iMat]=NewMatrice(s1,m2->nrows, m2->ncols);
 																		TabMat[iMat]->matrice=m2;
 																		
-																		printf("ajout pk L %d C %d \n",m2->nrows,m2->ncols);
 																
 																	
 																	}
@@ -737,7 +715,6 @@ int main(int argc, char* argv[])
 																}
 																tmp1[1][imult2]='\0';
 																
-																printf("%s x %s \n",tmp1[0],tmp1[1] );
 																
 																ftmp=atof(tmp1[1]);
 																
@@ -747,7 +724,6 @@ int main(int argc, char* argv[])
 																{
 																	if(strcmp(TabMat[i]->nom,tmp1[0])==0)
 																	{
-																		printf("\n Matrice : %s chargée \n",tmp1[0]);
 																		m1=TabMat[i]->matrice;
 																	}
 																	i++;
